@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ira Volunteer Fire Department</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Source+Serif+4:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F5F1E8;
+    --paper-2: #EDE7D8;
+    --ink: #1C1C1A;
+    --ink-2: #3A3933;
+    --muted: #6B6A62;
+    --rule: #D9D2BF;
+    --rule-2: #C3BCA7;
+    --forest: #2D3E2C;
+    --forest-2: #1E2B1D;
+    --bark: #6B4423;
+    --bark-2: #54351A;
+    --ember: #B33A2A;
+    --ember-2: #8E2C1F;
+    --moss: #5B6B3A;
+    --amber: #C98A2B;
+    --ok: #3E6B3E;
+    --warn: #C9762E;
+    --alert: #B33A2A;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: var(--ember-2); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { color: var(--ember); }
+  h1,h2,h3,h4 { font-family: 'Public Sans', system-ui, sans-serif; font-weight: 700; letter-spacing: -0.015em; margin: 0; color: var(--ink); }
+  h1 { font-weight: 800; }
+  h2 { font-size: 38px; line-height: 1.1; font-weight: 700; }
+  h3 { font-size: 22px; line-height: 1.25; font-weight: 700; }
+  em.accent { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-weight: 500; }
+  p { margin: 0; }
+  .mono { font-family: 'Public Sans', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .rule { height: 1px; background: var(--rule); border: 0; margin: 0; }
+
+  /* Skip link */
+  .skip { position: absolute; left: -9999px; top: 0; background: var(--ink); color: var(--paper); padding: 10px 16px; z-index: 1000; }
+  .skip:focus { left: 16px; top: 16px; }
+
+  /* Gov banner strip */
+  .gov-strip {
+    background: var(--forest-2);
+    color: #DDE4D4;
+    font-size: 13px;
+    font-family: 'Public Sans';
+    font-weight: 500;
+  }
+  .gov-strip .container { display: flex; align-items: center; gap: 12px; padding-top: 8px; padding-bottom: 8px; }
+  .gov-strip .dot { width: 6px; height: 6px; background: var(--amber); border-radius: 50%; flex-shrink: 0; }
+  .gov-strip span.lbl { color: #A8B5A2; }
+
+  /* Masthead */
+  .masthead { background: var(--paper); border-bottom: 1px solid var(--rule); position: sticky; top: 0; z-index: 50; }
+  .masthead .bar { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .brand { display: flex; align-items: center; gap: 14px; color: var(--ink); text-decoration: none; }
+  .brand .crest-sm { width: 44px; height: 44px; flex-shrink: 0; }
+  .brand .name { font-family: 'Public Sans'; font-size: 19px; font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; }
+  .brand .sub { font-family: 'Public Sans'; font-size: 12.5px; font-weight: 500; color: var(--muted); margin-top: 3px; }
+  nav.primary { display: flex; gap: 4px; align-items: center; }
+  nav.primary a { color: var(--ink-2); text-decoration: none; padding: 10px 14px; font-size: 15px; font-weight: 600; border-radius: 4px; }
+  nav.primary a:hover { background: var(--paper-2); color: var(--ink); }
+  nav.primary a.cta { background: var(--ember); color: #FBF6EC; padding: 10px 18px; margin-left: 8px; border-radius: 4px; }
+  nav.primary a.cta:hover { background: var(--ember-2); }
+
+  /* Alert banner */
+  .alert {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 14px 20px;
+    border-left: 4px solid var(--warn);
+    background: #FBF3E2;
+    margin: 0;
+  }
+  .alert .icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--warn); color: #FFF5E2;
+    display: grid; place-items: center;
+    font-weight: 800; font-family: 'Public Sans'; font-size: 20px;
+  }
+  .alert h4 { font-family: 'Public Sans'; font-weight: 700; font-size: 15.5px; margin: 0 0 2px; color: var(--ink); }
+  .alert p { font-size: 14.5px; color: var(--ink-2); }
+  .alert a.more { font-size: 14px; font-weight: 700; white-space: nowrap; }
+
+  /* ========== HERO ========== */
+  .hero { padding: 80px 0 72px; position: relative; overflow: hidden; }
+  .hero .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 72px; align-items: center; }
+  .hero-crest { display: flex; justify-content: center; }
+  .crest-lg { width: 380px; max-width: 100%; height: auto; }
+  .hero .eyebrow { font-family: 'Public Sans'; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bark); margin-bottom: 18px; }
+  .hero h1 {
+    font-family: 'Public Sans';
+    font-size: 64px;
+    line-height: 1.02;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin: 0 0 20px;
+  }
+  .hero h1 em { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-weight: 500; color: var(--bark); letter-spacing: -0.01em; }
+  .hero .lede { font-size: 18px; line-height: 1.55; color: var(--ink-2); max-width: 52ch; margin-bottom: 28px; }
+  .hero .quick { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; font-size: 14.5px; font-weight: 600; text-decoration: none; border-radius: 4px; border: 1px solid transparent; transition: all .15s; }
+  .btn-primary { background: var(--forest); color: #EDE7D8; }
+  .btn-primary:hover { background: var(--forest-2); color: #FFF; }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--rule-2); }
+  .btn-ghost:hover { background: var(--paper-2); border-color: var(--ink); }
+  .btn .arr { transition: transform .15s; }
+  .btn:hover .arr { transform: translateX(3px); }
+
+  /* Hero meta row */
+  .hero-meta {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-meta .cell { padding: 20px 24px; border-right: 1px solid var(--rule); }
+  .hero-meta .cell:last-child { border-right: 0; }
+  .hero-meta .k { font-family: 'Public Sans'; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .hero-meta .v { font-family: 'Public Sans'; font-size: 22px; font-weight: 700; line-height: 1.15; color: var(--ink); letter-spacing: -0.01em; }
+  .hero-meta .v small { font-family: 'Public Sans'; font-size: 13px; color: var(--muted); font-weight: 400; display: block; margin-top: 2px; }
+
+  /* ========== SECTIONS ========== */
+  section.block { padding: 96px 0; border-top: 1px solid var(--rule); }
+  section.block.dark { background: var(--forest); color: #E8EAE0; border-top-color: var(--forest-2); }
+  section.block.dark h2 { color: #F5F1E8; }
+  section.block.cream { background: var(--paper-2); }
+  .section-head { margin-bottom: 52px; }
+  section.block.dark .section-head h2 { max-width: 22ch; }
+  .section-head .blurb { color: var(--ink-2); font-size: 16.5px; max-width: 58ch; margin-top: 14px; }
+  section.block.dark .section-head .blurb { color: #C7CDBF; }
+
+  /* ========== FWI GAUGE ========== */
+  .fwi { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
+  .gauge-wrap { position: relative; padding: 32px; background: var(--paper); border: 1px solid var(--rule); }
+  .gauge-wrap .mono { margin-bottom: 18px; }
+  .gauge-svg { width: 100%; height: auto; display: block; }
+  .fwi-legend { display: flex; flex-direction: column; gap: 2px; margin-top: 28px; border-top: 1px solid var(--rule); padding-top: 20px; }
+  .fwi-legend .row { display: grid; grid-template-columns: 18px 1fr auto; gap: 14px; padding: 10px 0; align-items: center; border-bottom: 1px dashed var(--rule); font-size: 14px; }
+  .fwi-legend .row:last-child { border-bottom: 0; }
+  .fwi-legend .row.active { background: rgba(201, 138, 43, 0.08); padding-left: 8px; padding-right: 8px; margin: 0 -8px; border-bottom-color: transparent; }
+  .fwi-legend .sw { width: 14px; height: 14px; border-radius: 50%; }
+  .fwi-legend .lvl { font-weight: 600; }
+  .fwi-legend .desc { color: var(--muted); font-size: 13px; }
+  .fwi-context { font-size: 15.5px; line-height: 1.6; color: var(--ink-2); }
+  .fwi-context .stamp { font-family: 'Public Sans'; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  .fwi-context h3 { margin-bottom: 14px; }
+  .fwi-conditions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin-top: 24px; border-top: 1px solid var(--rule); }
+  .fwi-conditions .c { padding: 14px 0; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; }
+  .fwi-conditions .c:nth-child(odd) { padding-right: 16px; border-right: 1px solid var(--rule); }
+  .fwi-conditions .c:nth-child(even) { padding-left: 16px; }
+  .fwi-conditions .c .k { font-size: 13px; color: var(--muted); }
+  .fwi-conditions .c .v { font-family: 'Public Sans'; font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+
+  /* ========== BURN PERMIT ========== */
+  .permit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--rule); background: var(--paper); }
+  .permit-grid > div { padding: 36px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .permit-grid > div:nth-child(2n) { border-right: 0; }
+  .permit-grid > div:nth-last-child(-n+2) { border-bottom: 0; }
+  .permit-grid h3 { margin-bottom: 14px; font-size: 22px; }
+  .permit-grid p { font-size: 15px; color: var(--ink-2); }
+  .permit-num { font-family: 'Public Sans'; font-weight: 700; font-size: 13px; color: var(--bark); margin-bottom: 8px; letter-spacing: 0.08em; }
+
+  /* Accordion */
+  details.faq { border-bottom: 1px solid var(--rule); }
+  details.faq:first-of-type { border-top: 1px solid var(--rule); }
+  details.faq summary { list-style: none; cursor: pointer; padding: 22px 0; display: grid; grid-template-columns: 1fr 24px; gap: 16px; align-items: center; font-family: 'Public Sans'; font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
+  details.faq summary::-webkit-details-marker { display: none; }
+  details.faq summary .plus { width: 24px; height: 24px; position: relative; }
+  details.faq summary .plus::before, details.faq summary .plus::after { content: ''; position: absolute; background: var(--ink); }
+  details.faq summary .plus::before { left: 0; right: 0; top: 50%; height: 1.5px; transform: translateY(-50%); }
+  details.faq summary .plus::after { top: 0; bottom: 0; left: 50%; width: 1.5px; transform: translateX(-50%); transition: transform .2s; }
+  details.faq[open] summary .plus::after { transform: translateX(-50%) scaleY(0); }
+  details.faq .body { padding: 0 0 24px; color: var(--ink-2); font-size: 15.5px; line-height: 1.65; max-width: 72ch; }
+  details.faq .body ul { padding-left: 20px; margin: 12px 0; }
+  details.faq .body li { margin: 6px 0; }
+
+  .permit-contact {
+    margin-top: 40px;
+    padding: 32px 36px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: center;
+  }
+  .permit-contact h3 { margin-bottom: 6px; }
+  .permit-contact p { color: var(--ink-2); font-size: 15px; }
+  .permit-contact .contacts { display: flex; flex-direction: column; gap: 8px; text-align: right; }
+  .permit-contact .contacts a { font-family: 'Public Sans'; font-size: 20px; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+  .permit-contact .contacts a:hover { color: var(--ember); }
+  .permit-contact .contacts .k { font-family: 'Public Sans'; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+  /* ========== EVENTS ========== */
+  .events-list { border-top: 1px solid var(--rule); }
+  .event {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: center;
+    transition: background .15s;
+  }
+  .event:hover { background: var(--paper-2); margin: 0 -20px; padding-left: 20px; padding-right: 20px; }
+  .event .date { text-align: left; }
+  .event .date .mo { font-family: 'Public Sans'; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bark); }
+  .event .date .day { font-family: 'Public Sans'; font-size: 46px; font-weight: 800; line-height: 1; color: var(--ink); margin-top: 2px; letter-spacing: -0.02em; }
+  .event .date .dow { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .event .info h3 { margin-bottom: 6px; font-size: 22px; }
+  .event .info p { color: var(--ink-2); font-size: 14.5px; margin: 0; }
+  .event .info .meta { font-family: 'Public Sans'; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 8px; display: flex; gap: 16px; }
+  .event .tag { font-family: 'Public Sans'; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--rule-2); padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+  .event .tag.ember { color: var(--ember); border-color: var(--ember); }
+  .event .tag.forest { color: var(--forest); border-color: var(--forest); }
+  .event .tag.bark { color: var(--bark); border-color: var(--bark); }
+
+  /* ========== BOARD ========== */
+  .board-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .board-card { background: var(--paper); border: 1px solid rgba(255,255,255,0.08); padding: 0; }
+  section.block.dark .board-card { background: #26351F; border-color: #3A4A31; }
+  .board-card .photo {
+    aspect-ratio: 4/5;
+    background:
+      repeating-linear-gradient(135deg, rgba(107,68,35,0.14) 0 2px, transparent 2px 14px),
+      linear-gradient(180deg, #C9BFA6 0%, #9E9378 100%);
+    position: relative;
+  }
+  section.block.dark .board-card .photo {
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 14px),
+      linear-gradient(180deg, #3A4A31 0%, #2A3824 100%);
+  }
+  .board-card .photo .tag { position: absolute; top: 14px; left: 14px; font-family: 'Public Sans'; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; background: rgba(28,28,26,0.85); color: #EDE7D8; padding: 5px 10px; }
+  .board-card .photo .initials { position: absolute; inset: 0; display: grid; place-items: center; font-family: 'Public Sans'; font-size: 64px; color: rgba(255,255,255,0.35); font-weight: 800; letter-spacing: -0.02em; }
+  .board-card .body { padding: 22px 24px 26px; }
+  .board-card .role { font-family: 'Public Sans'; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #C9B88E; margin-bottom: 8px; }
+  .board-card .name { font-family: 'Public Sans'; font-size: 24px; font-weight: 700; color: #F5F1E8; line-height: 1.15; margin-bottom: 10px; letter-spacing: -0.01em; }
+  .board-card .bio { color: #C7CDBF; font-size: 14px; line-height: 1.55; }
+  .board-card .years { margin-top: 14px; font-family: 'Public Sans'; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8A9682; }
+
+  /* ========== VOLUNTEER + DONATE ========== */
+  .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .cta-card {
+    padding: 48px 44px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-card.ember { background: var(--ember); border-color: var(--ember-2); color: #FBF6EC; }
+  .cta-card.ember h3, .cta-card.ember p { color: #FBF6EC; }
+  .cta-card .icon-wrap { width: 48px; height: 48px; border: 1.5px solid var(--ink); border-radius: 50%; display: grid; place-items: center; margin-bottom: 24px; }
+  .cta-card.ember .icon-wrap { border-color: #FBF6EC; }
+  .cta-card .icon-wrap svg { width: 22px; height: 22px; }
+  .cta-card h3 { font-size: 32px; margin-bottom: 14px; }
+  .cta-card p { font-size: 15.5px; color: var(--ink-2); margin-bottom: 24px; max-width: 42ch; }
+  .cta-card.ember p { color: #F8E3DC; }
+  .cta-card .btn { background: var(--ink); color: var(--paper); border: none; }
+  .cta-card .btn:hover { background: #000; }
+  .cta-card.ember .btn { background: #FBF6EC; color: var(--ember-2); }
+  .cta-card.ember .btn:hover { background: #FFF; }
+  .cta-card .req { margin-top: 20px; font-family: 'Public Sans'; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .cta-card.ember .req { color: #F0C8BF; }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: var(--ink);
+    color: #C7C4B8;
+    padding: 72px 0 32px;
+  }
+  footer .top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid #3A3933; }
+  footer h4 { font-family: 'Public Sans'; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8A867A; margin-bottom: 18px; font-weight: 500; }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer li { margin-bottom: 10px; font-size: 14px; }
+  footer a { color: #EDE7D8; text-decoration: none; }
+  footer a:hover { color: #FFF; text-decoration: underline; }
+  footer .crest-foot { width: 56px; height: 56px; margin-bottom: 18px; }
+  footer .tagline { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 20px; font-weight: 500; color: #EDE7D8; line-height: 1.4; max-width: 30ch; margin-bottom: 20px; }
+  footer .addr { font-size: 14px; line-height: 1.7; color: #A8A598; }
+  footer .bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; font-size: 12.5px; color: #8A867A; font-family: 'Public Sans'; letter-spacing: 0.06em; }
+  footer .bottom .emerg { color: var(--ember); font-weight: 600; letter-spacing: 0.12em; }
+
+  @media (max-width: 920px) {
+    .hero .grid, .fwi, .permit-grid, .cta-grid, .board-grid, .section-head, footer .top { grid-template-columns: 1fr; gap: 32px; }
+    nav.primary { display: none; }
+    .hero h1 { font-size: 44px; }
+    .hero-meta { grid-template-columns: 1fr 1fr; }
+    .hero-meta .cell:nth-child(2) { border-right: 0; }
+    .hero-meta .cell:nth-child(1), .hero-meta .cell:nth-child(2) { border-bottom: 1px solid var(--rule); }
+    .event { grid-template-columns: 80px 1fr; }
+    .event .tag { display: none; }
+    .permit-contact { grid-template-columns: 1fr; }
+    .permit-contact .contacts { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+
+<!-- Gov strip -->
+<div class="gov-strip" role="region" aria-label="Official site notice">
+  <div class="container">
+    <span class="dot" aria-hidden="true"></span>
+    <span><span class="lbl">An official site of the</span> Town of Ira, Vermont &nbsp;&middot;&nbsp; <span class="lbl">Established</span> 1779</span>
+    <span style="margin-left:auto;color:#A8B5A2">In an emergency, dial <strong style="color:#FFF">9-1-1</strong></span>
+  </div>
+</div>
+
+<!-- Masthead -->
+<header class="masthead">
+  <div class="container bar">
+    <a href="#top" class="brand">
+      <svg class="crest-sm" viewBox="0 0 100 100" aria-hidden="true">
+        <use href="#crest"></use>
+      </svg>
+      <div>
+        <div class="name">Ira Volunteer Fire Dept.</div>
+        <div class="sub">Rutland County &middot; Station 9</div>
+      </div>
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <a href="#conditions">Conditions</a>
+      <a href="#permits">Burn Permits</a>
+      <a href="#events">Events</a>
+      <a href="#board">Our Board</a>
+      <a href="#volunteer">Volunteer</a>
+      <a href="#donate" class="cta">Donate</a>
+    </nav>
+  </div>
+  <!-- Alert -->
+  <div class="alert" role="alert" aria-live="polite">
+    <div class="icon" aria-hidden="true">!</div>
+    <div>
+      <h4>Elevated fire danger in effect &middot; April 16&ndash;18</h4>
+      <p>Dry conditions and sustained winds. New burn permits are being issued for small brush only. Existing permits may be suspended on short notice.</p>
+    </div>
+    <a href="#conditions" class="more">Current conditions &rarr;</a>
+  </div>
+</header>
+
+<!-- Crest SVG, defined once -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="crest" viewBox="0 0 100 100">
+      <!-- Outer shield -->
+      <path d="M50 4 L90 14 L88 54 C86 74 72 88 50 96 C28 88 14 74 12 54 L10 14 Z" fill="#F5F1E8" stroke="#1C1C1A" stroke-width="2"/>
+      <!-- Inner ring band -->
+      <path d="M50 10 L84 18 L82 52 C80 70 68 83 50 90 C32 83 20 70 18 52 L16 18 Z" fill="none" stroke="#1C1C1A" stroke-width="0.8" opacity="0.5"/>
+      <!-- Top banner -->
+      <path d="M18 20 L82 20 L78 30 L22 30 Z" fill="#2D3E2C"/>
+      <text x="50" y="27.5" text-anchor="middle" fill="#F5F1E8" font-family="Public Sans, sans-serif" font-size="5.2" letter-spacing="0.5" font-weight="600">IRA &middot; VERMONT</text>
+      <!-- Pine tree silhouette -->
+      <path d="M50 36 L44 48 L47 48 L42 58 L46 58 L40 70 L60 70 L54 58 L58 58 L53 48 L56 48 Z" fill="#2D3E2C"/>
+      <rect x="48" y="70" width="4" height="6" fill="#6B4423"/>
+      <!-- Flame behind tree -->
+      <path d="M50 32 C52 34 53 36 52 38 C54 36 56 38 55 41 C57 40 58 42 57 44 C55 44 53 43 52 41 C51 43 49 44 47 44 C46 42 47 40 49 41 C48 38 50 36 50 32 Z" fill="#B33A2A" opacity="0.88"/>
+      <!-- Established -->
+      <text x="50" y="84" text-anchor="middle" fill="#1C1C1A" font-family="Public Sans, sans-serif" font-size="5" font-style="italic">est. 1879</text>
+      <!-- Side stars -->
+      <circle cx="22" cy="52" r="1.2" fill="#6B4423"/>
+      <circle cx="78" cy="52" r="1.2" fill="#6B4423"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="grid">
+        <!-- LEFT: typography -->
+        <div>
+          <div class="eyebrow">Volunteer Fire &amp; Rescue &middot; Est. 1879</div>
+          <h1>Protecting the <em>hills, homes</em><br>and hollows of Ira.</h1>
+          <p class="lede">A volunteer department of fourteen, answering calls across Ira, West Rutland, and Middletown Springs. We respond to structure and brush fires, motor vehicle crashes, and medical emergencies &mdash; and we issue the burn permits that keep our woodlands safe.</p>
+          <div class="quick">
+            <a class="btn btn-primary" href="#permits">Request a burn permit <span class="arr">&rarr;</span></a>
+            <a class="btn btn-ghost" href="#volunteer">Join the department</a>
+          </div>
+        </div>
+        <!-- RIGHT: crest -->
+        <div>
+          <div class="hero-crest">
+            <svg class="crest-lg" viewBox="0 0 100 100" aria-label="Ira Volunteer Fire Department crest">
+              <use href="#crest"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meta row -->
+      <div class="hero-meta">
+        <div class="cell">
+          <div class="k">Calls answered, 2025</div>
+          <div class="v">142 <small>structure &middot; brush &middot; MVC &middot; medical</small></div>
+        </div>
+        <div class="cell">
+          <div class="k">Active volunteers</div>
+          <div class="v">14 <small>incl. 2 EMRs, 1 EMT-B</small></div>
+        </div>
+        <div class="cell">
+          <div class="k">Station address</div>
+          <div class="v">46 West Rd. <small>Ira, VT 05777</small></div>
+        </div>
+        <div class="cell">
+          <div class="k">Non-emergency</div>
+          <div class="v">(802) 235-2211 <small>chief@irafd.vt.gov</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FIRE WEATHER INDEX ============ -->
+  <section class="block" id="conditions">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Today's Fire Weather Index</h2>
+          <p class="blurb">Updated daily at 09:00 by the Vermont Division of Forestry and the Ira Fire Warden. The index combines temperature, wind, humidity, and fuel moisture to indicate how readily a fire will start and spread.</p>
+        </div>
+      </div>
+
+      <div class="fwi">
+        <!-- Gauge -->
+        <div>
+          <div class="gauge-wrap">
+            <div class="mono">Current &middot; Fri, Apr 17 &middot; 09:00 ET</div>
+            <svg class="gauge-svg" viewBox="0 0 400 240" role="img" aria-label="Fire weather index gauge, currently High">
+              <g transform="translate(200,200)">
+                <path d="M -160 0 A 160 160 0 0 1 -129.44 -93.97" fill="none" stroke="#3E6B3E" stroke-width="36" stroke-linecap="butt"/>
+                <path d="M -125.44 -91.07 A 160 160 0 0 1 -49.44 -152.17" fill="none" stroke="#5B6B3A" stroke-width="36"/>
+                <path d="M -45.44 -153.46 A 160 160 0 0 1 49.44 -152.17" fill="none" stroke="#C9762E" stroke-width="36"/>
+                <path d="M 53.44 -150.87 A 160 160 0 0 1 129.44 -93.97" fill="none" stroke="#B33A2A" stroke-width="36"/>
+                <path d="M 132.66 -89.39 A 160 160 0 0 1 160 0" fill="none" stroke="#6B1E13" stroke-width="36"/>
+                <g stroke="#F5F1E8" stroke-width="2">
+                  <line x1="-127.44" y1="-92.52" x2="-144.22" y2="-104.68"/>
+                  <line x1="-47.44" y1="-152.82" x2="-53.44" y2="-172.23"/>
+                  <line x1="51.44" y1="-151.52" x2="58.05" y2="-170.77"/>
+                  <line x1="131.05" y1="-91.68" x2="148.18" y2="-103.84"/>
+                </g>
+                <g transform="rotate(-18)">
+                  <polygon points="0,-150 -6,10 6,10" fill="#1C1C1A"/>
+                  <circle r="12" fill="#1C1C1A"/>
+                  <circle r="4" fill="#F5F1E8"/>
+                </g>
+              </g>
+              <g font-family="Public Sans, sans-serif" font-size="10" fill="#6B6A62" letter-spacing="0.5" text-anchor="middle">
+                <text x="48" y="220" transform="rotate(-72 48 220)">LOW</text>
+                <text x="120" y="80">MOD</text>
+                <text x="200" y="30" fill="#C9762E" font-weight="600">HIGH</text>
+                <text x="280" y="80">V. HIGH</text>
+                <text x="352" y="220" transform="rotate(72 352 220)">EXT</text>
+              </g>
+              <g text-anchor="middle">
+                <text x="200" y="215" font-family="Public Sans, sans-serif" font-size="44" fill="#1C1C1A" font-weight="500">High</text>
+                <text x="200" y="234" font-family="Public Sans, sans-serif" font-size="10" fill="#6B6A62" letter-spacing="1">LEVEL 3 OF 5</text>
+              </g>
+            </svg>
+
+            <div class="fwi-legend">
+              <div class="row"><span class="sw" style="background:#3E6B3E"></span><span><span class="lvl">Low</span> &nbsp; <span class="desc">Fires start slowly, spread little</span></span><span class="mono" style="text-transform:none">1</span></div>
+              <div class="row"><span class="sw" style="background:#5B6B3A"></span><span><span class="lvl">Moderate</span> &nbsp; <span class="desc">Fires start, may spread in grass</span></span><span class="mono" style="text-transform:none">2</span></div>
+              <div class="row active"><span class="sw" style="background:#C9762E"></span><span><span class="lvl">High</span> &nbsp; <span class="desc">Fires start easily, spread actively</span></span><span class="mono" style="text-transform:none">3 &middot; today</span></div>
+              <div class="row"><span class="sw" style="background:#B33A2A"></span><span><span class="lvl">Very High</span> &nbsp; <span class="desc">Fires intense, difficult to control</span></span><span class="mono" style="text-transform:none">4</span></div>
+              <div class="row"><span class="sw" style="background:#6B1E13"></span><span><span class="lvl">Extreme</span> &nbsp; <span class="desc">All open burning prohibited</span></span><span class="mono" style="text-transform:none">5</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Context -->
+        <div class="fwi-context">
+          <div class="stamp">What this means today</div>
+          <h3>Burn with extra caution. New permits for brush only.</h3>
+          <p>Vegetation is dry, humidity is low, and winds are from the west at 10&ndash;14 mph. Open burning is permitted with a written permit only, and only between dawn and dusk. Existing permits may be <strong>suspended without notice</strong> if conditions worsen.</p>
+
+          <div class="fwi-conditions">
+            <div class="c"><span class="k">Temperature</span><span class="v">62&deg;F</span></div>
+            <div class="c"><span class="k">Humidity</span><span class="v">34%</span></div>
+            <div class="c"><span class="k">Wind</span><span class="v">W 12 mph</span></div>
+            <div class="c"><span class="k">10-hr fuel</span><span class="v">8%</span></div>
+            <div class="c"><span class="k">Drought idx</span><span class="v">412</span></div>
+            <div class="c"><span class="k">Last rain</span><span class="v">6 days</span></div>
+          </div>
+          <p class="mono" style="margin-top:20px">Source: VT Div. of Forestry &middot; NOAA BTV</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BURN PERMITS ============ -->
+  <section class="block cream" id="permits">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Open burning in Ira</h2>
+          <p class="blurb">By Vermont state law (10 V.S.A. &sect; 2646), any open burning of natural wood or brush on your property requires a written permit from the town Fire Warden. Permits are free. We issue them day-of based on current conditions.</p>
+        </div>
+      </div>
+
+      <!-- 4-quadrant rules -->
+      <div class="permit-grid">
+        <div>
+          <div class="permit-num">01</div>
+          <h3>What you can burn</h3>
+          <p>Natural wood, brush, leaves, and untreated lumber grown or cut on your own property. Material must be dry and piled no larger than 4 ft &times; 4 ft &times; 4 ft.</p>
+        </div>
+        <div>
+          <div class="permit-num">02</div>
+          <h3>What is never allowed</h3>
+          <p>Household trash, treated wood, tires, plastics, construction debris, or any material hauled in from off-site. No exceptions.</p>
+        </div>
+        <div>
+          <div class="permit-num">03</div>
+          <h3>When you can burn</h3>
+          <p>Permits are valid between dawn and dusk on the day issued. Night burning is not authorized. Permits are not issued when the Fire Weather Index reaches <strong>Very High</strong> or <strong>Extreme</strong>.</p>
+        </div>
+        <div>
+          <div class="permit-num">04</div>
+          <h3>Your responsibilities</h3>
+          <p>A responsible adult must be present for the duration of the burn, with a charged hose or 20 gallons of water and a shovel on hand. The fire must be fully extinguished before you leave the site.</p>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div style="margin-top: 64px;">
+        <h3 style="font-size:28px;margin-bottom:24px">Common questions</h3>
+        <details class="faq">
+          <summary>How do I request a permit? <span class="plus" aria-hidden="true"></span></summary>
+          <div class="body">
+            <p>Call the Fire Warden between 8:00 a.m. and 4:00 p.m. the day you intend to burn. Be ready to describe the location, size of the pile, and what you plan to burn. The Warden will check current conditions and either issue a permit verbally with a written copy to follow, or ask you to wait for a better day.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>Is there a fee? <span class="plus" aria-hidden="true"></span></summary>
+          <div class="body">
+            <p>No. Permits are issued free of charge. Consider a donation to the department if you'd like to support our work.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>Do I need a permit for a recreational campfire? <span class="plus" aria-hidden="true"></span></summary>
+          <div class="body">
+            <p>Not for a small, contained campfire (under 3 ft across) for warmth or cooking, provided it is in a fire ring, pit, or commercial fireplace. All other conditions &mdash; sober attendance, water on hand, fully extinguished &mdash; still apply.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>What if my permit is suspended after it's issued? <span class="plus" aria-hidden="true"></span></summary>
+          <div class="body">
+            <p>If the Warden calls a suspension, extinguish your fire immediately and do not relight it. Your permit will be reissued the next permissible day at no cost. Suspensions are posted on this page and called out to active permit holders by phone.</p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>I see smoke on my neighbor's property. Is that reportable? <span class="plus" aria-hidden="true"></span></summary>
+          <div class="body">
+            <p>If the fire appears unattended, is spreading, or is producing thick black or chemical-smelling smoke, call <strong>9-1-1</strong>. If you're unsure whether a neighbor has a permit, you may call the non-emergency line during daytime hours.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Contact card -->
+      <div class="permit-contact">
+        <div>
+          <div class="mono" style="margin-bottom:8px">Request a permit</div>
+          <h3>Call or email the Fire Warden</h3>
+          <p>Day-of requests only. Leave a message if no answer and we will return your call within the hour during daylight.</p>
+        </div>
+        <div class="contacts">
+          <div>
+            <div class="k">Fire Warden</div>
+            <a href="tel:8022352211">(802) 235-2211</a>
+          </div>
+          <div>
+            <div class="k">Email</div>
+            <a href="mailto:warden@irafd.vt.gov">warden@irafd.vt.gov</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EVENTS ============ -->
+  <section class="block" id="events">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Upcoming events &amp; trainings</h2>
+          <p class="blurb">Department meetings are open to the public. Trainings are for active members, but observers are welcome with advance notice to the Chief.</p>
+        </div>
+      </div>
+
+      <div class="events-list">
+        <article class="event">
+          <div class="date">
+            <div class="mo">April</div>
+            <div class="day">22</div>
+            <div class="dow">Wednesday</div>
+          </div>
+          <div class="info">
+            <h3>Pancake Breakfast &amp; Open House</h3>
+            <p>Annual community breakfast at the station. Truck bay tours, gear try-ons for kids, and a chance to meet the crew. All proceeds fund new turnout gear.</p>
+            <div class="meta"><span>08:00&ndash;11:00 AM</span><span>Station 9 &middot; 46 West Rd.</span><span>$8 / free for kids under 8</span></div>
+          </div>
+          <span class="tag ember">Community</span>
+        </article>
+
+        <article class="event">
+          <div class="date">
+            <div class="mo">May</div>
+            <div class="day">06</div>
+            <div class="dow">Tuesday</div>
+          </div>
+          <div class="info">
+            <h3>Monthly Department Meeting</h3>
+            <p>Standing business meeting. Open to Ira residents. Agenda includes the FY26 apparatus budget review and summer training schedule.</p>
+            <div class="meta"><span>19:00</span><span>Station 9 &middot; Meeting Room</span><span>Open to public</span></div>
+          </div>
+          <span class="tag">Meeting</span>
+        </article>
+
+        <article class="event">
+          <div class="date">
+            <div class="mo">May</div>
+            <div class="day">17</div>
+            <div class="dow">Saturday</div>
+          </div>
+          <div class="info">
+            <h3>Wildland Fire Refresher (S-130/S-190)</h3>
+            <p>Annual refresher on wildland fire behavior, hand tools, and shelter deployment. Required for brush-qualified members. Joint training with West Rutland FD.</p>
+            <div class="meta"><span>08:00&ndash;16:00</span><span>Pine Hill Town Forest</span><span>Members + trainees</span></div>
+          </div>
+          <span class="tag forest">Training</span>
+        </article>
+
+        <article class="event">
+          <div class="date">
+            <div class="mo">June</div>
+            <div class="day">14</div>
+            <div class="dow">Saturday</div>
+          </div>
+          <div class="info">
+            <h3>Hose &amp; Pump Drill Night</h3>
+            <p>Driver/operator practical. We'll draft from the Poultney River access and run attack lines on the back pasture. Cookout to follow.</p>
+            <div class="meta"><span>17:30&ndash;20:30</span><span>River access, Rt. 133</span><span>Active members</span></div>
+          </div>
+          <span class="tag forest">Training</span>
+        </article>
+
+        <article class="event">
+          <div class="date">
+            <div class="mo">July</div>
+            <div class="day">04</div>
+            <div class="dow">Friday</div>
+          </div>
+          <div class="info">
+            <h3>Independence Day Parade &amp; Standby</h3>
+            <p>Engine 1 and Tanker 2 in the Ira&ndash;West Rutland parade. Fireworks standby at Fairgrounds Road from dusk until release.</p>
+            <div class="meta"><span>10:00 parade &middot; 20:30 standby</span><span>Main St. &amp; Fairgrounds Rd.</span></div>
+          </div>
+          <span class="tag ember">Community</span>
+        </article>
+
+        <article class="event">
+          <div class="date">
+            <div class="mo">Aug</div>
+            <div class="day">02</div>
+            <div class="dow">Saturday</div>
+          </div>
+          <div class="info">
+            <h3>Chicken BBQ Fundraiser</h3>
+            <p>Our largest fundraiser of the year. Full chicken dinners, corn on the cob, and the famous firehouse coleslaw. Proceeds fund the SCBA replacement program.</p>
+            <div class="meta"><span>11:00&ndash;sold out</span><span>Station 9 apron</span><span>$16 / dinner</span></div>
+          </div>
+          <span class="tag ember">Community</span>
+        </article>
+
+        <article class="event">
+          <div class="date">
+            <div class="mo">Sept</div>
+            <div class="day">13</div>
+            <div class="dow">Saturday</div>
+          </div>
+          <div class="info">
+            <h3>Open House &mdash; Fire Prevention Week</h3>
+            <p>Walk-through of the station, rescue tool demos, smoke trailer for kids, and home safety checklists. Coffee and cider donuts from Taylor Farm.</p>
+            <div class="meta"><span>10:00&ndash;14:00</span><span>Station 9 &middot; 46 West Rd.</span><span>Free admission</span></div>
+          </div>
+          <span class="tag bark">Education</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOARD ============ -->
+  <section class="block dark" id="board">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Board of Directors &amp; Officers</h2>
+          <p class="blurb">The Board meets the first Tuesday of every month at the station. Meetings are open; agendas and minutes are posted on the station bulletin board and at the Town Clerk's office.</p>
+        </div>
+      </div>
+
+      <div class="board-grid">
+        <article class="board-card">
+          <div class="photo"><span class="tag">Chief</span><span class="initials">DM</span></div>
+          <div class="body">
+            <div class="role">Fire Chief</div>
+            <div class="name">Dale Merritt</div>
+            <div class="bio">Thirty years on the department, chief since 2017. Dairy farmer by trade, EMR, and the town's Fire Warden. Joined the day he turned eighteen, has missed nine drill nights in three decades.</div>
+            <div class="years">Member since 1995 &middot; Chief since 2017</div>
+          </div>
+        </article>
+
+        <article class="board-card">
+          <div class="photo"><span class="tag">Assistant Chief</span><span class="initials">RP</span></div>
+          <div class="body">
+            <div class="role">Assistant Chief</div>
+            <div class="name">Rachel Poirier</div>
+            <div class="bio">Certified EMT-B and the department's lead instructor for vehicle extrication. Runs a small welding shop on Middletown Road. Heads up apparatus maintenance and the SCBA program.</div>
+            <div class="years">Member since 2004 &middot; Asst. Chief since 2019</div>
+          </div>
+        </article>
+
+        <article class="board-card">
+          <div class="photo"><span class="tag">Captain</span><span class="initials">TH</span></div>
+          <div class="body">
+            <div class="role">Captain &middot; Operations</div>
+            <div class="name">Thomas Hallock</div>
+            <div class="bio">Forester with the VT Department of Forests, Parks &amp; Recreation. Leads our wildland program and the joint S-130/S-190 training with surrounding towns. Pump operator on Engine 1.</div>
+            <div class="years">Member since 2008</div>
+          </div>
+        </article>
+
+        <article class="board-card">
+          <div class="photo"><span class="tag">Lieutenant</span><span class="initials">ML</span></div>
+          <div class="body">
+            <div class="role">Lieutenant &middot; Training</div>
+            <div class="name">Marian LeClair</div>
+            <div class="bio">Retired RN, volunteer EMR, schedules monthly drill nights and quarterly joint trainings. Keeps the department's continuing-education records and mentors new probationary members.</div>
+            <div class="years">Member since 2011</div>
+          </div>
+        </article>
+
+        <article class="board-card">
+          <div class="photo"><span class="tag">Treasurer</span><span class="initials">JB</span></div>
+          <div class="body">
+            <div class="role">Board Treasurer</div>
+            <div class="name">Jonah Breckinridge</div>
+            <div class="bio">CPA and selectboard liaison. Manages the department budget, the apparatus replacement sinking fund, and grant applications. Not a firefighter &mdash; shows up to every chicken BBQ anyway.</div>
+            <div class="years">Board member since 2020</div>
+          </div>
+        </article>
+
+        <article class="board-card">
+          <div class="photo"><span class="tag">Secretary</span><span class="initials">EC</span></div>
+          <div class="body">
+            <div class="role">Board Secretary</div>
+            <div class="name">Evelyn Crosby</div>
+            <div class="bio">Town historian and retired schoolteacher. Keeps the meeting minutes, the department's photo archive, and the small museum of old helmets and alarm boxes in the upstairs meeting room.</div>
+            <div class="years">Board member since 2016</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VOLUNTEER + DONATE ============ -->
+  <section class="block" id="volunteer">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Two ways to help your neighbors.</h2>
+          <p class="blurb">We're an all-volunteer department funded in part by the town and in large part by our neighbors. Give time or give money &mdash; either one keeps the trucks running and the crew trained.</p>
+        </div>
+      </div>
+
+      <div class="cta-grid">
+        <div class="cta-card">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z"/>
+            </svg>
+          </div>
+          <h3>Volunteer with us</h3>
+          <p>No prior experience required. We train you &mdash; Firefighter I, EMR, and driver/operator certifications are all available at no cost. You need to be 18 (junior member at 16 with parental consent), live within a 10-minute drive of the station, and be able to commit to one drill night a month and calls as you're able.</p>
+          <a href="mailto:chief@irafd.vt.gov?subject=Volunteer%20interest" class="btn">Contact the Chief <span class="arr">&rarr;</span></a>
+          <div class="req">Next recruit orientation &middot; May 20 &middot; 19:00</div>
+        </div>
+
+        <div class="cta-card ember" id="donate">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 21 C12 21 4 14 4 9 A4 4 0 0 1 12 7 A4 4 0 0 1 20 9 C20 14 12 21 12 21 Z"/>
+            </svg>
+          </div>
+          <h3>Donate</h3>
+          <p>A full set of structural turnout gear costs about $3,800. A new SCBA air pack is $7,200. An engine is a half-million dollars or more. Every gift &mdash; $20 or $2,000 &mdash; directly funds gear, training, and equipment for the people who answer your 9-1-1 call.</p>
+          <a href="#" class="btn">Give online <span class="arr">&rarr;</span></a>
+          <div class="req">Ira V.F.D. is a registered 501(c)(3) &middot; EIN 03-0318842</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="top">
+      <div>
+        <svg class="crest-foot" viewBox="0 0 100 100" aria-hidden="true"><use href="#crest"></use></svg>
+        <div class="tagline">Serving the Town of Ira and our neighbors across the Taconic foothills since 1879.</div>
+        <div class="addr">
+          Station 9 &middot; 46 West Road<br>
+          Ira, Vermont 05777<br>
+          (802) 235-2211 &middot; chief@irafd.vt.gov
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#permits">Burn permits</a></li>
+          <li><a href="#conditions">Fire weather</a></li>
+          <li><a href="#events">Public education</a></li>
+          <li><a href="#">Car seat checks</a></li>
+          <li><a href="#">Smoke alarm program</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>The Department</h4>
+        <ul>
+          <li><a href="#board">Board &amp; officers</a></li>
+          <li><a href="#volunteer">Become a member</a></li>
+          <li><a href="#">Apparatus</a></li>
+          <li><a href="#">Annual report (PDF)</a></li>
+          <li><a href="#">Minutes &amp; agendas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Town of Ira</h4>
+        <ul>
+          <li><a href="#">Town offices</a></li>
+          <li><a href="#">Selectboard</a></li>
+          <li><a href="#">Town Clerk</a></li>
+          <li><a href="#">Vermont Div. of Forestry</a></li>
+          <li><a href="#">VT 2-1-1</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <div>&copy; 2026 Ira Volunteer Fire Department &middot; An official site of the Town of Ira, Vermont</div>
+      <div class="emerg">IN AN EMERGENCY, DIAL 9-1-1</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Smooth scroll for in-page nav
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var id = a.getAttribute('href').slice(1);
+      if (!id) return;
+      var el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
