@@ -1,210 +1,730 @@
 ---
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
+
 ---
 
-<div id="container">
-	<img id="background" src={background.src} alt="" fetchpriority="high" />
-	<main>
-		<section id="hero">
-			<a href="https://astro.build"
-				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
-			>
-			<h1>
-				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
-			</h1>
-			<section id="links">
-				<a class="button" href="https://docs.astro.build">Read our docs</a>
-				<a href="https://astro.build/chat"
-					>Join our Discord <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"
-						><path
-							fill="currentColor"
-							d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
-						></path></svg
-					>
-				</a>
-			</section>
-		</section>
-	</main>
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="grid">
+        <!-- LEFT: typography -->
+        <div>
+          <div class="eyebrow">Volunteer Fire &amp; Rescue &middot; Est. 1879</div>
+          <h1>Protecting the <em>hills, homes</em><br />and hollows of Ira.</h1>
+          <p class="lede">
+            A volunteer department of fourteen, answering calls across Ira, West Rutland,
+            and Middletown Springs. We respond to structure and brush fires, motor vehicle
+            crashes, and medical emergencies &mdash; and we issue the burn permits that
+            keep our woodlands safe.
+          </p>
+          <div class="quick">
+            <a class="btn btn-primary" href="#permits"
+              >Request a burn permit <span class="arr">&rarr;</span></a
+            >
+            <a class="btn btn-ghost" href="#volunteer">Join the department</a>
+          </div>
+        </div>
+        <!-- RIGHT: crest -->
+        <div>
+          <div class="hero-crest">
+            <svg
+              class="crest-lg"
+              viewBox="0 0 100 100"
+              aria-label="Ira Volunteer Fire Department crest"
+            >
+              <use href="#crest"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
 
-	<a href="https://astro.build/blog/astro-6-beta/" id="news" class="box">
-		<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"
-			><path
-				d="M24.667 12c1.333 1.414 2 3.192 2 5.334 0 4.62-4.934 5.7-7.334 12C18.444 28.567 18 27.456 18 26c0-4.642 6.667-7.053 6.667-14Zm-5.334-5.333c1.6 1.65 2.4 3.43 2.4 5.333 0 6.602-8.06 7.59-6.4 17.334C13.111 27.787 12 25.564 12 22.666c0-4.434 7.333-8 7.333-16Zm-6-5.333C15.111 3.555 16 5.556 16 7.333c0 8.333-11.333 10.962-5.333 22-3.488-.774-6-4-6-8 0-8.667 8.666-10 8.666-20Z"
-				fill="#111827"></path></svg
-		>
-		<h2>What's New in Astro 6.0?</h2>
-		<p>
-			Redesigned dev server, fonts, live collections, built-in CSP support, and more! Click to
-			explore Astro 6.0's new features.
-		</p>
-	</a>
-</div>
+      <!-- Meta row -->
+      <div class="hero-meta">
+        <div class="cell">
+          <div class="k">Calls answered, 2025</div>
+          <div class="v">
+            142 <small>structure &middot; brush &middot; MVC &middot; medical</small>
+          </div>
+        </div>
+        <div class="cell">
+          <div class="k">Active volunteers</div>
+          <div class="v">14 <small>incl. 2 EMRs, 1 EMT-B</small></div>
+        </div>
+        <div class="cell">
+          <div class="k">Station address</div>
+          <div class="v">46 West Rd. <small>Ira, VT 05777</small></div>
+        </div>
+        <div class="cell">
+          <div class="k">Non-emergency</div>
+          <div class="v">(802) 235-2211 <small>chief@irafd.vt.gov</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<style>
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(100px);
-	}
+  <!-- ============ FIRE WEATHER INDEX ============ -->
+  <section class="block" id="conditions">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Today's Fire Weather Index</h2>
+          <p class="blurb">
+            Updated daily at 09:00 by the Vermont Division of Forestry and the Ira Fire
+            Warden. The index combines temperature, wind, humidity, and fuel moisture to
+            indicate how readily a fire will start and spread.
+          </p>
+        </div>
+      </div>
 
-	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
-	}
+      <div class="fwi">
+        <!-- Gauge -->
+        <div>
+          <div class="gauge-wrap">
+            <div class="mono">Current &middot; Fri, Apr 17 &middot; 09:00 ET</div>
+            <svg
+              class="gauge-svg"
+              viewBox="0 0 400 240"
+              role="img"
+              aria-label="Fire weather index gauge, currently High"
+            >
+              <g transform="translate(200,200)">
+                <path
+                  d="M -160 0 A 160 160 0 0 1 -129.44 -93.97"
+                  fill="none"
+                  stroke="#3E6B3E"
+                  stroke-width="36"
+                  stroke-linecap="butt"></path>
+                <path
+                  d="M -125.44 -91.07 A 160 160 0 0 1 -49.44 -152.17"
+                  fill="none"
+                  stroke="#5B6B3A"
+                  stroke-width="36"></path>
+                <path
+                  d="M -45.44 -153.46 A 160 160 0 0 1 49.44 -152.17"
+                  fill="none"
+                  stroke="#C9762E"
+                  stroke-width="36"></path>
+                <path
+                  d="M 53.44 -150.87 A 160 160 0 0 1 129.44 -93.97"
+                  fill="none"
+                  stroke="#B33A2A"
+                  stroke-width="36"></path>
+                <path
+                  d="M 132.66 -89.39 A 160 160 0 0 1 160 0"
+                  fill="none"
+                  stroke="#6B1E13"
+                  stroke-width="36"></path>
+                <g stroke="#F5F1E8" stroke-width="2">
+                  <line x1="-127.44" y1="-92.52" x2="-144.22" y2="-104.68"></line>
+                  <line x1="-47.44" y1="-152.82" x2="-53.44" y2="-172.23"></line>
+                  <line x1="51.44" y1="-151.52" x2="58.05" y2="-170.77"></line>
+                  <line x1="131.05" y1="-91.68" x2="148.18" y2="-103.84"></line>
+                </g>
+                <g transform="rotate(-18)">
+                  <polygon points="0,-150 -6,10 6,10" fill="#1C1C1A"></polygon>
+                  <circle r="12" fill="#1C1C1A"></circle>
+                  <circle r="4" fill="#F5F1E8"></circle>
+                </g>
+              </g>
+              <g
+                font-family="Public Sans, sans-serif"
+                font-size="10"
+                fill="#6B6A62"
+                letter-spacing="0.5"
+                text-anchor="middle"
+              >
+                <text x="48" y="220" transform="rotate(-72 48 220)">LOW</text>
+                <text x="120" y="80">MOD</text>
+                <text x="200" y="30" fill="#C9762E" font-weight="600">HIGH</text>
+                <text x="280" y="80">V. HIGH</text>
+                <text x="352" y="220" transform="rotate(72 352 220)">EXT</text>
+              </g>
+              <g text-anchor="middle">
+                <text
+                  x="200"
+                  y="215"
+                  font-family="Public Sans, sans-serif"
+                  font-size="44"
+                  fill="#1C1C1A"
+                  font-weight="500">High</text
+                >
+                <text
+                  x="200"
+                  y="234"
+                  font-family="Public Sans, sans-serif"
+                  font-size="10"
+                  fill="#6B6A62"
+                  letter-spacing="1">LEVEL 3 OF 5</text
+                >
+              </g>
+            </svg>
 
-	main {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-	}
+            <div class="fwi-legend">
+              <div class="row">
+                <span class="sw" style="background:#3E6B3E"></span><span
+                  ><span class="lvl">Low</span> &nbsp; <span class="desc"
+                    >Fires start slowly, spread little</span
+                  ></span
+                ><span class="mono" style="text-transform:none">1</span>
+              </div>
+              <div class="row">
+                <span class="sw" style="background:#5B6B3A"></span><span
+                  ><span class="lvl">Moderate</span> &nbsp; <span class="desc"
+                    >Fires start, may spread in grass</span
+                  ></span
+                ><span class="mono" style="text-transform:none">2</span>
+              </div>
+              <div class="row active">
+                <span class="sw" style="background:#C9762E"></span><span
+                  ><span class="lvl">High</span> &nbsp; <span class="desc"
+                    >Fires start easily, spread actively</span
+                  ></span
+                ><span class="mono" style="text-transform:none">3 &middot; today</span>
+              </div>
+              <div class="row">
+                <span class="sw" style="background:#B33A2A"></span><span
+                  ><span class="lvl">Very High</span> &nbsp; <span class="desc"
+                    >Fires intense, difficult to control</span
+                  ></span
+                ><span class="mono" style="text-transform:none">4</span>
+              </div>
+              <div class="row">
+                <span class="sw" style="background:#6B1E13"></span><span
+                  ><span class="lvl">Extreme</span> &nbsp; <span class="desc"
+                    >All open burning prohibited</span
+                  ></span
+                ><span class="mono" style="text-transform:none">5</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-	#hero {
-		display: flex;
-		align-items: start;
-		flex-direction: column;
-		justify-content: center;
-		padding: 16px;
-	}
+        <!-- Context -->
+        <div class="fwi-context">
+          <div class="stamp">What this means today</div>
+          <h3>Burn with extra caution. New permits for brush only.</h3>
+          <p>
+            Vegetation is dry, humidity is low, and winds are from the west at 10&ndash;14
+            mph. Open burning is permitted with a written permit only, and only between
+            dawn and dusk. Existing permits may be <strong
+              >suspended without notice</strong
+            > if conditions worsen.
+          </p>
 
-	h1 {
-		font-size: 22px;
-		margin-top: 0.25em;
-	}
+          <div class="fwi-conditions">
+            <div class="c">
+              <span class="k">Temperature</span><span class="v">62&deg;F</span>
+            </div>
+            <div class="c">
+              <span class="k">Humidity</span><span class="v">34%</span>
+            </div>
+            <div class="c">
+              <span class="k">Wind</span><span class="v">W 12 mph</span>
+            </div>
+            <div class="c">
+              <span class="k">10-hr fuel</span><span class="v">8%</span>
+            </div>
+            <div class="c">
+              <span class="k">Drought idx</span><span class="v">412</span>
+            </div>
+            <div class="c">
+              <span class="k">Last rain</span><span class="v">6 days</span>
+            </div>
+          </div>
+          <p class="mono" style="margin-top:20px">
+            Source: VT Div. of Forestry &middot; NOAA BTV
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	#links {
-		display: flex;
-		gap: 16px;
-	}
+  <!-- ============ BURN PERMITS ============ -->
+  <section class="block cream" id="permits">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Open burning in Ira</h2>
+          <p class="blurb">
+            By Vermont state law (10 V.S.A. &sect; 2646), any open burning of natural wood
+            or brush on your property requires a written permit from the town Fire Warden.
+            Permits are free. We issue them day-of based on current conditions.
+          </p>
+        </div>
+      </div>
 
-	#links a {
-		display: flex;
-		align-items: center;
-		padding: 10px 12px;
-		color: #111827;
-		text-decoration: none;
-		transition: color 0.2s;
-	}
+      <!-- 4-quadrant rules -->
+      <div class="permit-grid">
+        <div>
+          <div class="permit-num">01</div>
+          <h3>What you can burn</h3>
+          <p>
+            Natural wood, brush, leaves, and untreated lumber grown or cut on your own
+            property. Material must be dry and piled no larger than 4 ft &times; 4 ft
+            &times; 4 ft.
+          </p>
+        </div>
+        <div>
+          <div class="permit-num">02</div>
+          <h3>What is never allowed</h3>
+          <p>
+            Household trash, treated wood, tires, plastics, construction debris, or any
+            material hauled in from off-site. No exceptions.
+          </p>
+        </div>
+        <div>
+          <div class="permit-num">03</div>
+          <h3>When you can burn</h3>
+          <p>
+            Permits are valid between dawn and dusk on the day issued. Night burning is
+            not authorized. Permits are not issued when the Fire Weather Index reaches <strong
+              >Very High</strong
+            > or <strong>Extreme</strong>.
+          </p>
+        </div>
+        <div>
+          <div class="permit-num">04</div>
+          <h3>Your responsibilities</h3>
+          <p>
+            A responsible adult must be present for the duration of the burn, with a
+            charged hose or 20 gallons of water and a shovel on hand. The fire must be
+            fully extinguished before you leave the site.
+          </p>
+        </div>
+      </div>
 
-	#links a:hover {
-		color: rgb(78, 80, 86);
-	}
+      <!-- FAQ -->
+      <div style="margin-top: 64px;">
+        <h3 style="font-size:28px;margin-bottom:24px">Common questions</h3>
+        <details class="faq">
+          <summary
+            >How do I request a permit? <span class="plus" aria-hidden="true"
+            ></span></summary
+          >
+          <div class="body">
+            <p>
+              Call the Fire Warden between 8:00 a.m. and 4:00 p.m. the day you intend to
+              burn. Be ready to describe the location, size of the pile, and what you plan
+              to burn. The Warden will check current conditions and either issue a permit
+              verbally with a written copy to follow, or ask you to wait for a better day.
+            </p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary>Is there a fee? <span class="plus" aria-hidden="true"></span></summary>
+          <div class="body">
+            <p>
+              No. Permits are issued free of charge. Consider a donation to the department
+              if you'd like to support our work.
+            </p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary
+            >Do I need a permit for a recreational campfire? <span
+              class="plus"
+              aria-hidden="true"></span></summary
+          >
+          <div class="body">
+            <p>
+              Not for a small, contained campfire (under 3 ft across) for warmth or
+              cooking, provided it is in a fire ring, pit, or commercial fireplace. All
+              other conditions &mdash; sober attendance, water on hand, fully extinguished
+              &mdash; still apply.
+            </p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary
+            >What if my permit is suspended after it's issued? <span
+              class="plus"
+              aria-hidden="true"></span></summary
+          >
+          <div class="body">
+            <p>
+              If the Warden calls a suspension, extinguish your fire immediately and do
+              not relight it. Your permit will be reissued the next permissible day at no
+              cost. Suspensions are posted on this page and called out to active permit
+              holders by phone.
+            </p>
+          </div>
+        </details>
+        <details class="faq">
+          <summary
+            >I see smoke on my neighbor's property. Is that reportable? <span
+              class="plus"
+              aria-hidden="true"></span></summary
+          >
+          <div class="body">
+            <p>
+              If the fire appears unattended, is spreading, or is producing thick black or
+              chemical-smelling smoke, call <strong>9-1-1</strong>. If you're unsure
+              whether a neighbor has a permit, you may call the non-emergency line during
+              daytime hours.
+            </p>
+          </div>
+        </details>
+      </div>
 
-	#links a svg {
-		height: 1em;
-		margin-left: 8px;
-	}
+      <!-- Contact card -->
+      <div class="permit-contact">
+        <div>
+          <div class="mono" style="margin-bottom:8px">Request a permit</div>
+          <h3>Call or email the Fire Warden</h3>
+          <p>
+            Day-of requests only. Leave a message if no answer and we will return your
+            call within the hour during daylight.
+          </p>
+        </div>
+        <div class="contacts">
+          <div>
+            <div class="k">Fire Warden</div>
+            <a href="tel:8022352211">(802) 235-2211</a>
+          </div>
+          <div>
+            <div class="k">Email</div>
+            <a href="mailto:warden@irafd.vt.gov">warden@irafd.vt.gov</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	#links a.button {
-		color: white;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		box-shadow:
-			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
-	}
+  <!-- ============ EVENTS ============ -->
+  <section class="block" id="events">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Upcoming events &amp; trainings</h2>
+          <p class="blurb">
+            Department meetings are open to the public. Trainings are for active members,
+            but observers are welcome with advance notice to the Chief.
+          </p>
+        </div>
+      </div>
 
-	#links a.button:hover {
-		color: rgb(230, 230, 230);
-		box-shadow: none;
-	}
+      <div class="events-list">
+        <article class="event">
+          <div class="date">
+            <div class="mo">April</div>
+            <div class="day">22</div>
+            <div class="dow">Wednesday</div>
+          </div>
+          <div class="info">
+            <h3>Pancake Breakfast &amp; Open House</h3>
+            <p>
+              Annual community breakfast at the station. Truck bay tours, gear try-ons for
+              kids, and a chance to meet the crew. All proceeds fund new turnout gear.
+            </p>
+            <div class="meta">
+              <span>08:00&ndash;11:00 AM</span><span>Station 9 &middot; 46 West Rd.</span
+              ><span>$8 / free for kids under 8</span>
+            </div>
+          </div>
+          <span class="tag ember">Community</span>
+        </article>
 
-	pre {
-		font-family:
-			ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
-		font-weight: normal;
-		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		margin: 0;
-	}
+        <article class="event">
+          <div class="date">
+            <div class="mo">May</div>
+            <div class="day">06</div>
+            <div class="dow">Tuesday</div>
+          </div>
+          <div class="info">
+            <h3>Monthly Department Meeting</h3>
+            <p>
+              Standing business meeting. Open to Ira residents. Agenda includes the FY26
+              apparatus budget review and summer training schedule.
+            </p>
+            <div class="meta">
+              <span>19:00</span><span>Station 9 &middot; Meeting Room</span><span
+                >Open to public</span
+              >
+            </div>
+          </div>
+          <span class="tag">Meeting</span>
+        </article>
 
-	h2 {
-		margin: 0 0 1em;
-		font-weight: normal;
-		color: #111827;
-		font-size: 20px;
-	}
+        <article class="event">
+          <div class="date">
+            <div class="mo">May</div>
+            <div class="day">17</div>
+            <div class="dow">Saturday</div>
+          </div>
+          <div class="info">
+            <h3>Wildland Fire Refresher (S-130/S-190)</h3>
+            <p>
+              Annual refresher on wildland fire behavior, hand tools, and shelter
+              deployment. Required for brush-qualified members. Joint training with West
+              Rutland FD.
+            </p>
+            <div class="meta">
+              <span>08:00&ndash;16:00</span><span>Pine Hill Town Forest</span><span
+                >Members + trainees</span
+              >
+            </div>
+          </div>
+          <span class="tag forest">Training</span>
+        </article>
 
-	p {
-		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
-		margin: 0;
-	}
+        <article class="event">
+          <div class="date">
+            <div class="mo">June</div>
+            <div class="day">14</div>
+            <div class="dow">Saturday</div>
+          </div>
+          <div class="info">
+            <h3>Hose &amp; Pump Drill Night</h3>
+            <p>
+              Driver/operator practical. We'll draft from the Poultney River access and
+              run attack lines on the back pasture. Cookout to follow.
+            </p>
+            <div class="meta">
+              <span>17:30&ndash;20:30</span><span>River access, Rt. 133</span><span
+                >Active members</span
+              >
+            </div>
+          </div>
+          <span class="tag forest">Training</span>
+        </article>
 
-	code {
-		display: inline-block;
-		background:
-			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
-		border-radius: 8px;
-		border: 1px solid transparent;
-		padding: 6px 8px;
-	}
+        <article class="event">
+          <div class="date">
+            <div class="mo">July</div>
+            <div class="day">04</div>
+            <div class="dow">Friday</div>
+          </div>
+          <div class="info">
+            <h3>Independence Day Parade &amp; Standby</h3>
+            <p>
+              Engine 1 and Tanker 2 in the Ira&ndash;West Rutland parade. Fireworks
+              standby at Fairgrounds Road from dusk until release.
+            </p>
+            <div class="meta">
+              <span>10:00 parade &middot; 20:30 standby</span><span
+                >Main St. &amp; Fairgrounds Rd.</span
+              >
+            </div>
+          </div>
+          <span class="tag ember">Community</span>
+        </article>
 
-	.box {
-		padding: 16px;
-		background: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		border: 1px solid white;
-	}
+        <article class="event">
+          <div class="date">
+            <div class="mo">Aug</div>
+            <div class="day">02</div>
+            <div class="dow">Saturday</div>
+          </div>
+          <div class="info">
+            <h3>Chicken BBQ Fundraiser</h3>
+            <p>
+              Our largest fundraiser of the year. Full chicken dinners, corn on the cob,
+              and the famous firehouse coleslaw. Proceeds fund the SCBA replacement
+              program.
+            </p>
+            <div class="meta">
+              <span>11:00&ndash;sold out</span><span>Station 9 apron</span><span
+                >$16 / dinner</span
+              >
+            </div>
+          </div>
+          <span class="tag ember">Community</span>
+        </article>
 
-	#news {
-		position: absolute;
-		bottom: 16px;
-		right: 16px;
-		max-width: 300px;
-		text-decoration: none;
-		transition: background 0.2s;
-		backdrop-filter: blur(50px);
-	}
+        <article class="event">
+          <div class="date">
+            <div class="mo">Sept</div>
+            <div class="day">13</div>
+            <div class="dow">Saturday</div>
+          </div>
+          <div class="info">
+            <h3>Open House &mdash; Fire Prevention Week</h3>
+            <p>
+              Walk-through of the station, rescue tool demos, smoke trailer for kids, and
+              home safety checklists. Coffee and cider donuts from Taylor Farm.
+            </p>
+            <div class="meta">
+              <span>10:00&ndash;14:00</span><span>Station 9 &middot; 46 West Rd.</span
+              ><span>Free admission</span>
+            </div>
+          </div>
+          <span class="tag bark">Education</span>
+        </article>
+      </div>
+    </div>
+  </section>
 
-	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
-	}
+  <!-- ============ BOARD ============ -->
+  <section class="block dark" id="board">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Board of Directors &amp; Officers</h2>
+          <p class="blurb">
+            The Board meets the first Tuesday of every month at the station. Meetings are
+            open; agendas and minutes are posted on the station bulletin board and at the
+            Town Clerk's office.
+          </p>
+        </div>
+      </div>
 
-	@media screen and (max-height: 368px) {
-		#news {
-			display: none;
-		}
-	}
+      <div class="board-grid">
+        <article class="board-card">
+          <div class="photo">
+            <span class="tag">Chief</span><span class="initials">DM</span>
+          </div>
+          <div class="body">
+            <div class="role">Fire Chief</div>
+            <div class="name">Dale Merritt</div>
+            <div class="bio">
+              Thirty years on the department, chief since 2017. Dairy farmer by trade,
+              EMR, and the town's Fire Warden. Joined the day he turned eighteen, has
+              missed nine drill nights in three decades.
+            </div>
+            <div class="years">Member since 1995 &middot; Chief since 2017</div>
+          </div>
+        </article>
 
-	@media screen and (max-width: 768px) {
-		#container {
-			display: flex;
-			flex-direction: column;
-		}
+        <article class="board-card">
+          <div class="photo">
+            <span class="tag">Assistant Chief</span><span class="initials">RP</span>
+          </div>
+          <div class="body">
+            <div class="role">Assistant Chief</div>
+            <div class="name">Rachel Poirier</div>
+            <div class="bio">
+              Certified EMT-B and the department's lead instructor for vehicle
+              extrication. Runs a small welding shop on Middletown Road. Heads up
+              apparatus maintenance and the SCBA program.
+            </div>
+            <div class="years">Member since 2004 &middot; Asst. Chief since 2019</div>
+          </div>
+        </article>
 
-		#hero {
-			display: block;
-			padding-top: 10%;
-		}
+        <article class="board-card">
+          <div class="photo">
+            <span class="tag">Captain</span><span class="initials">TH</span>
+          </div>
+          <div class="body">
+            <div class="role">Captain &middot; Operations</div>
+            <div class="name">Thomas Hallock</div>
+            <div class="bio">
+              Forester with the VT Department of Forests, Parks &amp; Recreation. Leads
+              our wildland program and the joint S-130/S-190 training with surrounding
+              towns. Pump operator on Engine 1.
+            </div>
+            <div class="years">Member since 2008</div>
+          </div>
+        </article>
 
-		#links {
-			flex-wrap: wrap;
-		}
+        <article class="board-card">
+          <div class="photo">
+            <span class="tag">Lieutenant</span><span class="initials">ML</span>
+          </div>
+          <div class="body">
+            <div class="role">Lieutenant &middot; Training</div>
+            <div class="name">Marian LeClair</div>
+            <div class="bio">
+              Retired RN, volunteer EMR, schedules monthly drill nights and quarterly
+              joint trainings. Keeps the department's continuing-education records and
+              mentors new probationary members.
+            </div>
+            <div class="years">Member since 2011</div>
+          </div>
+        </article>
 
-		#links a.button {
-			padding: 14px 18px;
-		}
+        <article class="board-card">
+          <div class="photo">
+            <span class="tag">Treasurer</span><span class="initials">JB</span>
+          </div>
+          <div class="body">
+            <div class="role">Board Treasurer</div>
+            <div class="name">Jonah Breckinridge</div>
+            <div class="bio">
+              CPA and selectboard liaison. Manages the department budget, the apparatus
+              replacement sinking fund, and grant applications. Not a firefighter &mdash;
+              shows up to every chicken BBQ anyway.
+            </div>
+            <div class="years">Board member since 2020</div>
+          </div>
+        </article>
 
-		#news {
-			right: 16px;
-			left: 16px;
-			bottom: 2.5rem;
-			max-width: 100%;
-		}
+        <article class="board-card">
+          <div class="photo">
+            <span class="tag">Secretary</span><span class="initials">EC</span>
+          </div>
+          <div class="body">
+            <div class="role">Board Secretary</div>
+            <div class="name">Evelyn Crosby</div>
+            <div class="bio">
+              Town historian and retired schoolteacher. Keeps the meeting minutes, the
+              department's photo archive, and the small museum of old helmets and alarm
+              boxes in the upstairs meeting room.
+            </div>
+            <div class="years">Board member since 2016</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-		h1 {
-			line-height: 1.5;
-		}
-	}
-</style>
+  <!-- ============ VOLUNTEER + DONATE ============ -->
+  <section class="block" id="volunteer">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Two ways to help your neighbors.</h2>
+          <p class="blurb">
+            We're an all-volunteer department funded in part by the town and in large part
+            by our neighbors. Give time or give money &mdash; either one keeps the trucks
+            running and the crew trained.
+          </p>
+        </div>
+      </div>
+
+      <div class="cta-grid">
+        <div class="cta-card">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z"
+              ></path>
+            </svg>
+          </div>
+          <h3>Volunteer with us</h3>
+          <p>
+            No prior experience required. We train you &mdash; Firefighter I, EMR, and
+            driver/operator certifications are all available at no cost. You need to be 18
+            (junior member at 16 with parental consent), live within a 10-minute drive of
+            the station, and be able to commit to one drill night a month and calls as
+            you're able.
+          </p>
+          <a href="mailto:chief@irafd.vt.gov?subject=Volunteer%20interest" class="btn"
+            >Contact the Chief <span class="arr">&rarr;</span></a
+          >
+          <div class="req">Next recruit orientation &middot; May 20 &middot; 19:00</div>
+        </div>
+
+        <div class="cta-card ember" id="donate">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M12 21 C12 21 4 14 4 9 A4 4 0 0 1 12 7 A4 4 0 0 1 20 9 C20 14 12 21 12 21 Z"
+              ></path>
+            </svg>
+          </div>
+          <h3>Donate</h3>
+          <p>
+            A full set of structural turnout gear costs about $3,800. A new SCBA air pack
+            is $7,200. An engine is a half-million dollars or more. Every gift &mdash; $20
+            or $2,000 &mdash; directly funds gear, training, and equipment for the people
+            who answer your 9-1-1 call.
+          </p>
+          <a href="#" class="btn">Give online <span class="arr">&rarr;</span></a>
+          <div class="req">
+            Ira V.F.D. is a registered 501(c)(3) &middot; EIN 03-0318842
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

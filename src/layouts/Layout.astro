@@ -1,23 +1,1252 @@
+---
+
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Ira Volunteer Fire Department</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Source+Serif+4:ital,wght@1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <style is:global>
+      :root {
+        --paper: #f5f1e8;
+        --paper-2: #ede7d8;
+        --paper-bright: #faf7ec;
+        --ink: #1c1c1a;
+        --ink-2: #3a3933;
+        --ink-deep: #0e0e0d;
+        --muted: #6b6a62;
+        --rule: #d9d2bf;
+        --rule-2: #c3bca7;
+        --forest: #2d3e2c;
+        --forest-2: #1e2b1d;
+        --bark: #6b4423;
+        --bark-2: #54351a;
+        --ember: #b33a2a;
+        --ember-2: #8e2c1f;
+        --moss: #5b6b3a;
+        --amber: #c98a2b;
+        --ok: #3e6b3e;
+        --warn: #c9762e;
+        --alert: #b33a2a;
+        --sans: 'Public Sans', system-ui, -apple-system, sans-serif;
+        --serif: 'Source Serif 4', Georgia, serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family:
+          'Public Sans',
+          system-ui,
+          -apple-system,
+          sans-serif;
+        font-size: 17px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      a {
+        color: var(--ember-2);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 1px;
+      }
+      a:hover {
+        color: var(--ember);
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: 'Public Sans', system-ui, sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        margin: 0;
+        color: var(--ink);
+      }
+      h1 {
+        font-weight: 800;
+      }
+      h2 {
+        font-size: 38px;
+        line-height: 1.1;
+        font-weight: 700;
+      }
+      h3 {
+        font-size: 22px;
+        line-height: 1.25;
+        font-weight: 700;
+      }
+      em.accent {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-style: italic;
+        font-weight: 500;
+      }
+      p {
+        margin: 0;
+      }
+      .mono {
+        font-family: 'Public Sans', sans-serif;
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      .rule {
+        height: 1px;
+        background: var(--rule);
+        border: 0;
+        margin: 0;
+      }
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+      /* Skip link */
+      .skip {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        background: var(--ink);
+        color: var(--paper);
+        padding: 10px 16px;
+        z-index: 1000;
+      }
+      .skip:focus {
+        left: 16px;
+        top: 16px;
+      }
+
+      /* Gov banner strip */
+      .gov-strip {
+        background: var(--forest-2);
+        color: #dde4d4;
+        font-size: 13px;
+        font-family: 'Public Sans';
+        font-weight: 500;
+      }
+      .gov-strip .container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+      .gov-strip .dot {
+        width: 6px;
+        height: 6px;
+        background: var(--amber);
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .gov-strip span.lbl {
+        color: #a8b5a2;
+      }
+
+      /* Masthead */
+      .masthead {
+        background: var(--paper);
+        border-bottom: 1px solid var(--rule);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .masthead .bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 0;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .brand .crest-sm {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+      }
+      .brand .name {
+        font-family: 'Public Sans';
+        font-size: 19px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+      }
+      .brand .sub {
+        font-family: 'Public Sans';
+        font-size: 12.5px;
+        font-weight: 500;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+      nav.primary {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+      }
+      nav.primary a {
+        color: var(--ink-2);
+        text-decoration: none;
+        padding: 10px 14px;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 4px;
+      }
+      nav.primary a:hover {
+        background: var(--paper-2);
+        color: var(--ink);
+      }
+      nav.primary a.cta {
+        background: var(--ember);
+        color: #fbf6ec;
+        padding: 10px 18px;
+        margin-left: 8px;
+        border-radius: 4px;
+      }
+      nav.primary a.cta:hover {
+        background: var(--ember-2);
+      }
+
+      /* Alert banner */
+      .alert {
+        display: grid;
+        grid-template-columns: 44px 1fr auto;
+        gap: 16px;
+        align-items: center;
+        padding: 14px 20px;
+        border-left: 4px solid var(--warn);
+        background: #fbf3e2;
+        margin: 0;
+      }
+      .alert .icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--warn);
+        color: #fff5e2;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        font-family: 'Public Sans';
+        font-size: 20px;
+      }
+      .alert h4 {
+        font-family: 'Public Sans';
+        font-weight: 700;
+        font-size: 15.5px;
+        margin: 0 0 2px;
+        color: var(--ink);
+      }
+      .alert p {
+        font-size: 14.5px;
+        color: var(--ink-2);
+      }
+      .alert a.more {
+        font-size: 14px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      /* ========== HERO ========== */
+      .hero {
+        padding: 80px 0 72px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero .grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 72px;
+        align-items: center;
+      }
+      .hero-crest {
+        display: flex;
+        justify-content: center;
+      }
+      .crest-lg {
+        width: 380px;
+        max-width: 100%;
+        height: auto;
+      }
+      .hero .eyebrow {
+        font-family: 'Public Sans';
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--bark);
+        margin-bottom: 18px;
+      }
+      .hero h1 {
+        font-family: 'Public Sans';
+        font-size: 64px;
+        line-height: 1.02;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        margin: 0 0 20px;
+      }
+      .hero h1 em {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-style: italic;
+        font-weight: 500;
+        color: var(--bark);
+        letter-spacing: -0.01em;
+      }
+      .hero .lede {
+        font-size: 18px;
+        line-height: 1.55;
+        color: var(--ink-2);
+        max-width: 52ch;
+        margin-bottom: 28px;
+      }
+      .hero .quick {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        font-size: 14.5px;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        transition: all 0.15s;
+      }
+      .btn-primary {
+        background: var(--forest);
+        color: #ede7d8;
+      }
+      .btn-primary:hover {
+        background: var(--forest-2);
+        color: #fff;
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--ink);
+        border-color: var(--rule-2);
+      }
+      .btn-ghost:hover {
+        background: var(--paper-2);
+        border-color: var(--ink);
+      }
+      .btn .arr {
+        transition: transform 0.15s;
+      }
+      .btn:hover .arr {
+        transform: translateX(3px);
+      }
+
+      /* Hero meta row */
+      .hero-meta {
+        margin-top: 56px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+      }
+      .hero-meta .cell {
+        padding: 20px 24px;
+        border-right: 1px solid var(--rule);
+      }
+      .hero-meta .cell:last-child {
+        border-right: 0;
+      }
+      .hero-meta .k {
+        font-family: 'Public Sans';
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+      .hero-meta .v {
+        font-family: 'Public Sans';
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.15;
+        color: var(--ink);
+        letter-spacing: -0.01em;
+      }
+      .hero-meta .v small {
+        font-family: 'Public Sans';
+        font-size: 13px;
+        color: var(--muted);
+        font-weight: 400;
+        display: block;
+        margin-top: 2px;
+      }
+
+      /* ========== SECTIONS ========== */
+      section.block {
+        padding: 96px 0;
+        border-top: 1px solid var(--rule);
+      }
+      section.block.dark {
+        background: var(--forest);
+        color: #e8eae0;
+        border-top-color: var(--forest-2);
+      }
+      section.block.dark h2 {
+        color: #f5f1e8;
+      }
+      section.block.cream {
+        background: var(--paper-2);
+      }
+      .section-head {
+        margin-bottom: 52px;
+      }
+      section.block.dark .section-head h2 {
+        max-width: 22ch;
+      }
+      .section-head .blurb {
+        color: var(--ink-2);
+        font-size: 16.5px;
+        max-width: 58ch;
+        margin-top: 14px;
+      }
+      section.block.dark .section-head .blurb {
+        color: #c7cdbf;
+      }
+
+      /* ========== FWI GAUGE ========== */
+      .fwi {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 64px;
+        align-items: center;
+      }
+      .gauge-wrap {
+        position: relative;
+        padding: 32px;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+      }
+      .gauge-wrap .mono {
+        margin-bottom: 18px;
+      }
+      .gauge-svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .fwi-legend {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-top: 28px;
+        border-top: 1px solid var(--rule);
+        padding-top: 20px;
+      }
+      .fwi-legend .row {
+        display: grid;
+        grid-template-columns: 18px 1fr auto;
+        gap: 14px;
+        padding: 10px 0;
+        align-items: center;
+        border-bottom: 1px dashed var(--rule);
+        font-size: 14px;
+      }
+      .fwi-legend .row:last-child {
+        border-bottom: 0;
+      }
+      .fwi-legend .row.active {
+        background: rgba(201, 138, 43, 0.08);
+        padding-left: 8px;
+        padding-right: 8px;
+        margin: 0 -8px;
+        border-bottom-color: transparent;
+      }
+      .fwi-legend .sw {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+      }
+      .fwi-legend .lvl {
+        font-weight: 600;
+      }
+      .fwi-legend .desc {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .fwi-context {
+        font-size: 15.5px;
+        line-height: 1.6;
+        color: var(--ink-2);
+      }
+      .fwi-context .stamp {
+        font-family: 'Public Sans';
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+      .fwi-context h3 {
+        margin-bottom: 14px;
+      }
+      .fwi-conditions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+        margin-top: 24px;
+        border-top: 1px solid var(--rule);
+      }
+      .fwi-conditions .c {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--rule);
+        display: flex;
+        justify-content: space-between;
+      }
+      .fwi-conditions .c:nth-child(odd) {
+        padding-right: 16px;
+        border-right: 1px solid var(--rule);
+      }
+      .fwi-conditions .c:nth-child(even) {
+        padding-left: 16px;
+      }
+      .fwi-conditions .c .k {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .fwi-conditions .c .v {
+        font-family: 'Public Sans';
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--ink);
+        letter-spacing: -0.01em;
+      }
+
+      /* ========== BURN PERMIT ========== */
+      .permit-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        border: 1px solid var(--rule);
+        background: var(--paper);
+      }
+      .permit-grid > div {
+        padding: 36px;
+        border-right: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+      }
+      .permit-grid > div:nth-child(2n) {
+        border-right: 0;
+      }
+      .permit-grid > div:nth-last-child(-n + 2) {
+        border-bottom: 0;
+      }
+      .permit-grid h3 {
+        margin-bottom: 14px;
+        font-size: 22px;
+      }
+      .permit-grid p {
+        font-size: 15px;
+        color: var(--ink-2);
+      }
+      .permit-num {
+        font-family: 'Public Sans';
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--bark);
+        margin-bottom: 8px;
+        letter-spacing: 0.08em;
+      }
+
+      /* Accordion */
+      details.faq {
+        border-bottom: 1px solid var(--rule);
+      }
+      details.faq:first-of-type {
+        border-top: 1px solid var(--rule);
+      }
+      details.faq summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 22px 0;
+        display: grid;
+        grid-template-columns: 1fr 24px;
+        gap: 16px;
+        align-items: center;
+        font-family: 'Public Sans';
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--ink);
+        letter-spacing: -0.005em;
+      }
+      details.faq summary::-webkit-details-marker {
+        display: none;
+      }
+      details.faq summary .plus {
+        width: 24px;
+        height: 24px;
+        position: relative;
+      }
+      details.faq summary .plus::before,
+      details.faq summary .plus::after {
+        content: '';
+        position: absolute;
+        background: var(--ink);
+      }
+      details.faq summary .plus::before {
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 1.5px;
+        transform: translateY(-50%);
+      }
+      details.faq summary .plus::after {
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 1.5px;
+        transform: translateX(-50%);
+        transition: transform 0.2s;
+      }
+      details.faq[open] summary .plus::after {
+        transform: translateX(-50%) scaleY(0);
+      }
+      details.faq .body {
+        padding: 0 0 24px;
+        color: var(--ink-2);
+        font-size: 15.5px;
+        line-height: 1.65;
+        max-width: 72ch;
+      }
+      details.faq .body ul {
+        padding-left: 20px;
+        margin: 12px 0;
+      }
+      details.faq .body li {
+        margin: 6px 0;
+      }
+
+      .permit-contact {
+        margin-top: 40px;
+        padding: 32px 36px;
+        border: 1px solid var(--rule);
+        background: var(--paper);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 28px;
+        align-items: center;
+      }
+      .permit-contact h3 {
+        margin-bottom: 6px;
+      }
+      .permit-contact p {
+        color: var(--ink-2);
+        font-size: 15px;
+      }
+      .permit-contact .contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        text-align: right;
+      }
+      .permit-contact .contacts a {
+        font-family: 'Public Sans';
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--ink);
+        text-decoration: none;
+        letter-spacing: -0.01em;
+      }
+      .permit-contact .contacts a:hover {
+        color: var(--ember);
+      }
+      .permit-contact .contacts .k {
+        font-family: 'Public Sans';
+        font-size: 10.5px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* ========== EVENTS ========== */
+      .events-list {
+        border-top: 1px solid var(--rule);
+      }
+      .event {
+        display: grid;
+        grid-template-columns: 120px 1fr auto;
+        gap: 32px;
+        padding: 28px 0;
+        border-bottom: 1px solid var(--rule);
+        align-items: center;
+        transition: background 0.15s;
+      }
+      .event:hover {
+        background: var(--paper-2);
+        margin: 0 -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .event .date {
+        text-align: left;
+      }
+      .event .date .mo {
+        font-family: 'Public Sans';
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--bark);
+      }
+      .event .date .day {
+        font-family: 'Public Sans';
+        font-size: 46px;
+        font-weight: 800;
+        line-height: 1;
+        color: var(--ink);
+        margin-top: 2px;
+        letter-spacing: -0.02em;
+      }
+      .event .date .dow {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .event .info h3 {
+        margin-bottom: 6px;
+        font-size: 22px;
+      }
+      .event .info p {
+        color: var(--ink-2);
+        font-size: 14.5px;
+        margin: 0;
+      }
+      .event .info .meta {
+        font-family: 'Public Sans';
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 8px;
+        display: flex;
+        gap: 16px;
+      }
+      .event .tag {
+        font-family: 'Public Sans';
+        font-size: 10.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        border: 1px solid var(--rule-2);
+        padding: 6px 12px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+      .event .tag.ember {
+        color: var(--ember);
+        border-color: var(--ember);
+      }
+      .event .tag.forest {
+        color: var(--forest);
+        border-color: var(--forest);
+      }
+      .event .tag.bark {
+        color: var(--bark);
+        border-color: var(--bark);
+      }
+
+      /* ========== BOARD ========== */
+      .board-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+      .board-card {
+        background: var(--paper);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 0;
+      }
+      section.block.dark .board-card {
+        background: #26351f;
+        border-color: #3a4a31;
+      }
+      .board-card .photo {
+        aspect-ratio: 4/5;
+        background:
+          repeating-linear-gradient(
+            135deg,
+            rgba(107, 68, 35, 0.14) 0 2px,
+            transparent 2px 14px
+          ),
+          linear-gradient(180deg, #c9bfa6 0%, #9e9378 100%);
+        position: relative;
+      }
+      section.block.dark .board-card .photo {
+        background:
+          repeating-linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.06) 0 2px,
+            transparent 2px 14px
+          ),
+          linear-gradient(180deg, #3a4a31 0%, #2a3824 100%);
+      }
+      .board-card .photo .tag {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        font-family: 'Public Sans';
+        font-size: 10.5px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: rgba(28, 28, 26, 0.85);
+        color: #ede7d8;
+        padding: 5px 10px;
+      }
+      .board-card .photo .initials {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-family: 'Public Sans';
+        font-size: 64px;
+        color: rgba(255, 255, 255, 0.35);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .board-card .body {
+        padding: 22px 24px 26px;
+      }
+      .board-card .role {
+        font-family: 'Public Sans';
+        font-size: 10.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #c9b88e;
+        margin-bottom: 8px;
+      }
+      .board-card .name {
+        font-family: 'Public Sans';
+        font-size: 24px;
+        font-weight: 700;
+        color: #f5f1e8;
+        line-height: 1.15;
+        margin-bottom: 10px;
+        letter-spacing: -0.01em;
+      }
+      .board-card .bio {
+        color: #c7cdbf;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+      .board-card .years {
+        margin-top: 14px;
+        font-family: 'Public Sans';
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #8a9682;
+      }
+
+      /* ========== VOLUNTEER + DONATE ========== */
+      .cta-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .cta-card {
+        padding: 48px 44px;
+        border: 1px solid var(--rule);
+        background: var(--paper);
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-card.ember {
+        background: var(--ember);
+        border-color: var(--ember-2);
+        color: #fbf6ec;
+      }
+      .cta-card.ember h3,
+      .cta-card.ember p {
+        color: #fbf6ec;
+      }
+      .cta-card .icon-wrap {
+        width: 48px;
+        height: 48px;
+        border: 1.5px solid var(--ink);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        margin-bottom: 24px;
+      }
+      .cta-card.ember .icon-wrap {
+        border-color: #fbf6ec;
+      }
+      .cta-card .icon-wrap svg {
+        width: 22px;
+        height: 22px;
+      }
+      .cta-card h3 {
+        font-size: 32px;
+        margin-bottom: 14px;
+      }
+      .cta-card p {
+        font-size: 15.5px;
+        color: var(--ink-2);
+        margin-bottom: 24px;
+        max-width: 42ch;
+      }
+      .cta-card.ember p {
+        color: #f8e3dc;
+      }
+      .cta-card .btn {
+        background: var(--ink);
+        color: var(--paper);
+        border: none;
+      }
+      .cta-card .btn:hover {
+        background: #000;
+      }
+      .cta-card.ember .btn {
+        background: #fbf6ec;
+        color: var(--ember-2);
+      }
+      .cta-card.ember .btn:hover {
+        background: #fff;
+      }
+      .cta-card .req {
+        margin-top: 20px;
+        font-family: 'Public Sans';
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .cta-card.ember .req {
+        color: #f0c8bf;
+      }
+
+      /* ========== FOOTER ========== */
+      footer {
+        background: var(--ink);
+        color: #c7c4b8;
+        padding: 72px 0 32px;
+      }
+      footer .top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 56px;
+        padding-bottom: 56px;
+        border-bottom: 1px solid #3a3933;
+      }
+      footer h4 {
+        font-family: 'Public Sans';
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #8a867a;
+        margin-bottom: 18px;
+        font-weight: 500;
+      }
+      footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      footer li {
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+      footer a {
+        color: #ede7d8;
+        text-decoration: none;
+      }
+      footer a:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
+      footer .crest-foot {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 18px;
+      }
+      footer .tagline {
+        font-family: 'Source Serif 4', Georgia, serif;
+        font-style: italic;
+        font-size: 20px;
+        font-weight: 500;
+        color: #ede7d8;
+        line-height: 1.4;
+        max-width: 30ch;
+        margin-bottom: 20px;
+      }
+      footer .addr {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #a8a598;
+      }
+      footer .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 28px;
+        font-size: 12.5px;
+        color: #8a867a;
+        font-family: 'Public Sans';
+        letter-spacing: 0.06em;
+      }
+      footer .bottom .emerg {
+        color: var(--ember);
+        font-weight: 600;
+        letter-spacing: 0.12em;
+      }
+
+      @media (max-width: 920px) {
+        .hero .grid,
+        .fwi,
+        .permit-grid,
+        .cta-grid,
+        .board-grid,
+        .section-head,
+        footer .top {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        nav.primary {
+          display: none;
+        }
+        .hero h1 {
+          font-size: 44px;
+        }
+        .hero-meta {
+          grid-template-columns: 1fr 1fr;
+        }
+        .hero-meta .cell:nth-child(2) {
+          border-right: 0;
+        }
+        .hero-meta .cell:nth-child(1),
+        .hero-meta .cell:nth-child(2) {
+          border-bottom: 1px solid var(--rule);
+        }
+        .event {
+          grid-template-columns: 80px 1fr;
+        }
+        .event .tag {
+          display: none;
+        }
+        .permit-contact {
+          grid-template-columns: 1fr;
+        }
+        .permit-contact .contacts {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main" class="skip">Skip to main content</a>
+
+    <!-- Gov strip -->
+    <div class="gov-strip" role="region" aria-label="Official site notice">
+      <div class="container">
+        <span class="dot" aria-hidden="true"></span>
+        <span
+          ><span class="lbl">An official site of the</span> Town of Ira, Vermont &nbsp;&middot;&nbsp;
+          <span class="lbl">Established</span> 1779</span
+        >
+        <span style="margin-left:auto;color:#A8B5A2"
+          >In an emergency, dial <strong style="color:#FFF">9-1-1</strong></span
+        >
+      </div>
+    </div>
+
+    <!-- Masthead -->
+    <header class="masthead">
+      <div class="container bar">
+        <a href="#top" class="brand">
+          <svg class="crest-sm" viewBox="0 0 100 100" aria-hidden="true">
+            <use href="#crest"></use>
+          </svg>
+          <div>
+            <div class="name">Ira Volunteer Fire Dept.</div>
+            <div class="sub">Rutland County &middot; Station 9</div>
+          </div>
+        </a>
+        <nav class="primary" aria-label="Primary">
+          <a href="#conditions">Conditions</a>
+          <a href="#permits">Burn Permits</a>
+          <a href="#events">Events</a>
+          <a href="#board">Our Board</a>
+          <a href="#volunteer">Volunteer</a>
+          <a href="#donate" class="cta">Donate</a>
+        </nav>
+      </div>
+      <!-- Alert -->
+      <div class="alert" role="alert" aria-live="polite">
+        <div class="icon" aria-hidden="true">!</div>
+        <div>
+          <h4>Elevated fire danger in effect &middot; April 16&ndash;18</h4>
+          <p>
+            Dry conditions and sustained winds. New burn permits are being issued for
+            small brush only. Existing permits may be suspended on short notice.
+          </p>
+        </div>
+        <a href="#conditions" class="more">Current conditions &rarr;</a>
+      </div>
+    </header>
+
+    <!-- Crest SVG, defined once -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="crest" viewBox="0 0 100 100">
+          <!-- Outer shield -->
+          <path
+            d="M50 4 L90 14 L88 54 C86 74 72 88 50 96 C28 88 14 74 12 54 L10 14 Z"
+            fill="#F5F1E8"
+            stroke="#1C1C1A"
+            stroke-width="2"></path>
+          <!-- Inner ring band -->
+          <path
+            d="M50 10 L84 18 L82 52 C80 70 68 83 50 90 C32 83 20 70 18 52 L16 18 Z"
+            fill="none"
+            stroke="#1C1C1A"
+            stroke-width="0.8"
+            opacity="0.5"></path>
+          <!-- Top banner -->
+          <path d="M18 20 L82 20 L78 30 L22 30 Z" fill="#2D3E2C"></path>
+          <text
+            x="50"
+            y="27.5"
+            text-anchor="middle"
+            fill="#F5F1E8"
+            font-family="Public Sans, sans-serif"
+            font-size="5.2"
+            letter-spacing="0.5"
+            font-weight="600">IRA &middot; VERMONT</text
+          >
+          <!-- Pine tree silhouette -->
+          <path
+            d="M50 36 L44 48 L47 48 L42 58 L46 58 L40 70 L60 70 L54 58 L58 58 L53 48 L56 48 Z"
+            fill="#2D3E2C"></path>
+          <rect x="48" y="70" width="4" height="6" fill="#6B4423"></rect>
+          <!-- Flame behind tree -->
+          <path
+            d="M50 32 C52 34 53 36 52 38 C54 36 56 38 55 41 C57 40 58 42 57 44 C55 44 53 43 52 41 C51 43 49 44 47 44 C46 42 47 40 49 41 C48 38 50 36 50 32 Z"
+            fill="#B33A2A"
+            opacity="0.88"></path>
+          <!-- Established -->
+          <text
+            x="50"
+            y="84"
+            text-anchor="middle"
+            fill="#1C1C1A"
+            font-family="Public Sans, sans-serif"
+            font-size="5"
+            font-style="italic">est. 1879</text
+          >
+          <!-- Side stars -->
+          <circle cx="22" cy="52" r="1.2" fill="#6B4423"></circle>
+          <circle cx="78" cy="52" r="1.2" fill="#6B4423"></circle>
+        </symbol>
+      </defs>
+    </svg>
+
+    <slot />
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="top">
+          <div>
+            <svg class="crest-foot" viewBox="0 0 100 100" aria-hidden="true"
+              ><use href="#crest"></use></svg
+            >
+            <div class="tagline">
+              Serving the Town of Ira and our neighbors across the Taconic foothills since
+              1879.
+            </div>
+            <div class="addr">
+              Station 9 &middot; 46 West Road<br />
+              Ira, Vermont 05777<br />
+              (802) 235-2211 &middot; chief@irafd.vt.gov
+            </div>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#permits">Burn permits</a></li>
+              <li><a href="#conditions">Fire weather</a></li>
+              <li><a href="#events">Public education</a></li>
+              <li><a href="#">Car seat checks</a></li>
+              <li><a href="#">Smoke alarm program</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>The Department</h4>
+            <ul>
+              <li><a href="#board">Board &amp; officers</a></li>
+              <li><a href="#volunteer">Become a member</a></li>
+              <li><a href="#">Apparatus</a></li>
+              <li><a href="#">Annual report (PDF)</a></li>
+              <li><a href="#">Minutes &amp; agendas</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Town of Ira</h4>
+            <ul>
+              <li><a href="#">Town offices</a></li>
+              <li><a href="#">Selectboard</a></li>
+              <li><a href="#">Town Clerk</a></li>
+              <li><a href="#">Vermont Div. of Forestry</a></li>
+              <li><a href="#">VT 2-1-1</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="bottom">
+          <div>
+            &copy; 2026 Ira Volunteer Fire Department &middot; An official site of the
+            Town of Ira, Vermont
+          </div>
+          <div class="emerg">IN AN EMERGENCY, DIAL 9-1-1</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+          a.addEventListener('click', function (e) {
+            var id = a.getAttribute('href')?.slice(1);
+            if (!id) return;
+            var el = document.getElementById(id);
+            if (el) {
+              e.preventDefault();
+              window.scrollTo({
+                top: el.getBoundingClientRect().top + window.scrollY - 80,
+                behavior: 'smooth',
+              });
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
