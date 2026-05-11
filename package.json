@@ -1,0 +1,38 @@
+{
+  "name": "ira-fd-web",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "https://github.com/irafiredept/web#readme",
+  "bugs": {
+    "url": "https://github.com/irafiredept/web/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irafiredept/web.git"
+  },
+  "license": "UNLICENSED",
+  "author": "juliette@sugarbush.tech",
+  "type": "module",
+  "main": "index.js",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^5.0.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^6.3.1",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  },
+    "devDependencies": {
+    "prettier": "3.8.0",
+    "prettier-plugin-astro": "^0.14.1"
+  }
+}
