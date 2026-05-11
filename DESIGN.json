@@ -1,0 +1,459 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-04-30T00:00:00Z",
+  "title": "Design System: Ira Volunteer Fire Department",
+  "extensions": {
+    "colorMeta": {
+      "almanac-cream": {
+        "role": "neutral",
+        "displayName": "Almanac Cream",
+        "canonical": "oklch(94.5% 0.012 82)",
+        "tonalRamp": [
+          "oklch(18% 0.012 82)",
+          "oklch(30% 0.012 82)",
+          "oklch(42% 0.012 82)",
+          "oklch(55% 0.012 82)",
+          "oklch(68% 0.012 82)",
+          "oklch(80% 0.012 82)",
+          "oklch(89% 0.012 82)",
+          "oklch(96% 0.010 82)"
+        ]
+      },
+      "mill-paper": {
+        "role": "neutral",
+        "displayName": "Mill Paper",
+        "canonical": "oklch(91% 0.018 82)",
+        "tonalRamp": [
+          "oklch(18% 0.018 82)",
+          "oklch(30% 0.018 82)",
+          "oklch(42% 0.018 82)",
+          "oklch(55% 0.018 82)",
+          "oklch(68% 0.018 82)",
+          "oklch(80% 0.018 82)",
+          "oklch(91% 0.018 82)",
+          "oklch(96% 0.012 82)"
+        ]
+      },
+      "bulletin-ink": {
+        "role": "neutral",
+        "displayName": "Bulletin Ink",
+        "canonical": "oklch(18% 0.004 82)",
+        "tonalRamp": [
+          "oklch(12% 0.004 82)",
+          "oklch(18% 0.004 82)",
+          "oklch(28% 0.005 82)",
+          "oklch(40% 0.006 82)",
+          "oklch(55% 0.006 82)",
+          "oklch(70% 0.006 82)",
+          "oklch(85% 0.006 82)",
+          "oklch(94% 0.005 82)"
+        ]
+      },
+      "slate-ink": {
+        "role": "neutral",
+        "displayName": "Slate Ink",
+        "canonical": "oklch(28% 0.005 82)",
+        "tonalRamp": [
+          "oklch(15% 0.005 82)",
+          "oklch(28% 0.005 82)",
+          "oklch(40% 0.006 82)",
+          "oklch(52% 0.006 82)",
+          "oklch(63% 0.006 82)",
+          "oklch(74% 0.005 82)",
+          "oklch(85% 0.005 82)",
+          "oklch(94% 0.004 82)"
+        ]
+      },
+      "birch-gray": {
+        "role": "neutral",
+        "displayName": "Birch Bark Gray",
+        "canonical": "oklch(48% 0.006 82)",
+        "tonalRamp": [
+          "oklch(18% 0.006 82)",
+          "oklch(30% 0.006 82)",
+          "oklch(48% 0.006 82)",
+          "oklch(58% 0.006 82)",
+          "oklch(68% 0.006 82)",
+          "oklch(78% 0.006 82)",
+          "oklch(88% 0.005 82)",
+          "oklch(96% 0.004 82)"
+        ]
+      },
+      "newsprint-rule": {
+        "role": "neutral",
+        "displayName": "Newsprint Rule",
+        "canonical": "oklch(85% 0.018 82)",
+        "tonalRamp": [
+          "oklch(20% 0.018 82)",
+          "oklch(35% 0.018 82)",
+          "oklch(48% 0.018 82)",
+          "oklch(60% 0.018 82)",
+          "oklch(72% 0.018 82)",
+          "oklch(85% 0.018 82)",
+          "oklch(91% 0.014 82)",
+          "oklch(96% 0.010 82)"
+        ]
+      },
+      "heavy-rule": {
+        "role": "neutral",
+        "displayName": "Heavy Rule",
+        "canonical": "oklch(78% 0.020 82)",
+        "tonalRamp": [
+          "oklch(20% 0.020 82)",
+          "oklch(34% 0.020 82)",
+          "oklch(48% 0.020 82)",
+          "oklch(60% 0.020 82)",
+          "oklch(70% 0.020 82)",
+          "oklch(78% 0.020 82)",
+          "oklch(88% 0.014 82)",
+          "oklch(95% 0.010 82)"
+        ]
+      },
+      "vermont-pine": {
+        "role": "primary",
+        "displayName": "Vermont Pine",
+        "canonical": "oklch(35% 0.045 142)",
+        "tonalRamp": [
+          "oklch(15% 0.030 142)",
+          "oklch(22% 0.038 142)",
+          "oklch(28% 0.042 142)",
+          "oklch(35% 0.045 142)",
+          "oklch(48% 0.050 142)",
+          "oklch(62% 0.045 142)",
+          "oklch(78% 0.030 142)",
+          "oklch(92% 0.015 142)"
+        ]
+      },
+      "deep-pine": {
+        "role": "primary",
+        "displayName": "Deep Pine",
+        "canonical": "oklch(26% 0.038 142)",
+        "tonalRamp": [
+          "oklch(12% 0.025 142)",
+          "oklch(20% 0.035 142)",
+          "oklch(26% 0.038 142)",
+          "oklch(35% 0.045 142)",
+          "oklch(48% 0.050 142)",
+          "oklch(62% 0.045 142)",
+          "oklch(78% 0.030 142)",
+          "oklch(92% 0.015 142)"
+        ]
+      },
+      "ember-brick": {
+        "role": "secondary",
+        "displayName": "Ember Brick",
+        "canonical": "oklch(50% 0.150 30)",
+        "tonalRamp": [
+          "oklch(20% 0.080 30)",
+          "oklch(30% 0.110 30)",
+          "oklch(40% 0.135 30)",
+          "oklch(50% 0.150 30)",
+          "oklch(62% 0.140 30)",
+          "oklch(74% 0.110 30)",
+          "oklch(86% 0.060 30)",
+          "oklch(95% 0.020 30)"
+        ]
+      },
+      "banked-ember": {
+        "role": "secondary",
+        "displayName": "Banked Ember",
+        "canonical": "oklch(40% 0.130 30)",
+        "tonalRamp": [
+          "oklch(18% 0.080 30)",
+          "oklch(28% 0.110 30)",
+          "oklch(40% 0.130 30)",
+          "oklch(50% 0.150 30)",
+          "oklch(62% 0.140 30)",
+          "oklch(74% 0.110 30)",
+          "oklch(86% 0.060 30)",
+          "oklch(95% 0.020 30)"
+        ]
+      },
+      "maple-bark": {
+        "role": "tertiary",
+        "displayName": "Maple Bark",
+        "canonical": "oklch(40% 0.075 55)",
+        "tonalRamp": [
+          "oklch(18% 0.050 55)",
+          "oklch(28% 0.065 55)",
+          "oklch(40% 0.075 55)",
+          "oklch(52% 0.080 55)",
+          "oklch(64% 0.075 55)",
+          "oklch(76% 0.060 55)",
+          "oklch(86% 0.040 55)",
+          "oklch(95% 0.020 55)"
+        ]
+      },
+      "dark-bark": {
+        "role": "tertiary",
+        "displayName": "Dark Bark",
+        "canonical": "oklch(32% 0.065 55)",
+        "tonalRamp": [
+          "oklch(15% 0.045 55)",
+          "oklch(24% 0.060 55)",
+          "oklch(32% 0.065 55)",
+          "oklch(40% 0.075 55)",
+          "oklch(54% 0.080 55)",
+          "oklch(68% 0.065 55)",
+          "oklch(82% 0.040 55)",
+          "oklch(94% 0.020 55)"
+        ]
+      },
+      "lantern-amber": {
+        "role": "tertiary",
+        "displayName": "Lantern Amber",
+        "canonical": "oklch(68% 0.130 75)",
+        "tonalRamp": [
+          "oklch(25% 0.075 75)",
+          "oklch(38% 0.105 75)",
+          "oklch(50% 0.125 75)",
+          "oklch(60% 0.135 75)",
+          "oklch(68% 0.130 75)",
+          "oklch(78% 0.110 75)",
+          "oklch(88% 0.070 75)",
+          "oklch(96% 0.030 75)"
+        ]
+      },
+      "caution-ochre": {
+        "role": "tertiary",
+        "displayName": "Caution Ochre",
+        "canonical": "oklch(63% 0.130 55)",
+        "tonalRamp": [
+          "oklch(22% 0.075 55)",
+          "oklch(35% 0.105 55)",
+          "oklch(48% 0.125 55)",
+          "oklch(58% 0.130 55)",
+          "oklch(63% 0.130 55)",
+          "oklch(76% 0.105 55)",
+          "oklch(88% 0.060 55)",
+          "oklch(96% 0.025 55)"
+        ]
+      },
+      "hollow-moss": {
+        "role": "tertiary",
+        "displayName": "Hollow Moss",
+        "canonical": "oklch(48% 0.060 115)",
+        "tonalRamp": [
+          "oklch(20% 0.040 115)",
+          "oklch(32% 0.055 115)",
+          "oklch(48% 0.060 115)",
+          "oklch(60% 0.065 115)",
+          "oklch(72% 0.060 115)",
+          "oklch(82% 0.045 115)",
+          "oklch(90% 0.030 115)",
+          "oklch(96% 0.015 115)"
+        ]
+      },
+      "pasture-green": {
+        "role": "tertiary",
+        "displayName": "Pasture Green",
+        "canonical": "oklch(50% 0.075 145)",
+        "tonalRamp": [
+          "oklch(20% 0.050 145)",
+          "oklch(32% 0.065 145)",
+          "oklch(50% 0.075 145)",
+          "oklch(62% 0.080 145)",
+          "oklch(74% 0.070 145)",
+          "oklch(84% 0.050 145)",
+          "oklch(91% 0.030 145)",
+          "oklch(96% 0.015 145)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only. One per page. Shrinks to 44px below 920px."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section heads. Carries the page outline."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Sub-section heads, FAQ summaries, event titles, board-card names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running paragraphs at 17px. Cap line length at 65-75ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase metadata (FWI legend, station info chips). Always Birch Gray."
+      },
+      "eyebrow": {
+        "displayName": "Eyebrow",
+        "purpose": "Widest-tracked uppercase label. Used for datelines and 'EST. 1879' marks. Always Maple Bark."
+      },
+      "italic-accent": {
+        "displayName": "Italic Accent",
+        "purpose": "Source Serif 4 italic 500. Reserved for two roles: a phrase inside Display, and the footer tagline."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for state transitions. Public Sans is utilitarian, motion follows."
+      },
+      {
+        "name": "duration-fast",
+        "value": "150ms",
+        "purpose": "Default duration for button hover, link color shifts, arrow translations."
+      },
+      {
+        "name": "duration-medium",
+        "value": "200ms",
+        "purpose": "Default for FAQ accordion plus-glyph rotation."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "md",
+        "value": "920px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Vermont Pine fill, Mill Paper text. Used for the principal action on any screen (request a permit, find conditions). Right-arrow translates +3px on hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Request a burn permit <span class=\"ds-arr\">&rarr;</span></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; font-family: 'Public Sans', system-ui, sans-serif; font-size: 14.5px; font-weight: 600; color: #EDE7D8; background: #2D3E2C; border: 1px solid transparent; border-radius: 4px; text-decoration: none; transition: background 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary:hover { background: #1E2B1D; color: #F5F1E8; } .ds-btn-primary:focus-visible { outline: 2px solid #2D3E2C; outline-offset: 2px; } .ds-btn-primary .ds-arr { transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary:hover .ds-arr { transform: translateX(3px); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Transparent background, Bulletin Ink text, 1px Heavy Rule border. The companion action next to the primary.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Join the department</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; font-family: 'Public Sans', system-ui, sans-serif; font-size: 14.5px; font-weight: 600; color: #1C1C1A; background: transparent; border: 1px solid #C3BCA7; border-radius: 4px; text-decoration: none; transition: background 150ms cubic-bezier(0.4, 0, 0.2, 1), border-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-ghost:hover { background: #EDE7D8; border-color: #1C1C1A; } .ds-btn-ghost:focus-visible { outline: 2px solid #2D3E2C; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ember Donate Button",
+      "kind": "button",
+      "refersTo": "button-ember",
+      "description": "Inverted button used inside the Ember Brick donate CTA card. Almanac Cream fill on a Banked Ember surface so the action reads as the page's only warm-warning interaction.",
+      "html": "<div class=\"ds-cta-ember\"><a class=\"ds-btn-on-ember\" href=\"#\">Donate today <span class=\"ds-arr\">&rarr;</span></a></div>",
+      "css": ".ds-cta-ember { background: #B33A2A; padding: 32px; } .ds-btn-on-ember { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; font-family: 'Public Sans', system-ui, sans-serif; font-size: 14.5px; font-weight: 600; color: #8E2C1F; background: #FBF6EC; border: none; border-radius: 4px; text-decoration: none; transition: background 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-on-ember:hover { background: #FFFFFF; } .ds-btn-on-ember:focus-visible { outline: 2px solid #FBF6EC; outline-offset: 2px; } .ds-btn-on-ember .ds-arr { transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-on-ember:hover .ds-arr { transform: translateX(3px); }"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "chip-tag",
+      "description": "Pill-shaped, outline-only, uppercase. Used to categorize events. Variants by color: ember (emergency), forest (training/volunteer), bark (community/fundraising).",
+      "html": "<span class=\"ds-chip ds-chip-forest\">Training</span> <span class=\"ds-chip ds-chip-ember\">Standby</span> <span class=\"ds-chip ds-chip-bark\">Fundraiser</span>",
+      "css": ".ds-chip { display: inline-block; font-family: 'Public Sans', system-ui, sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; background: transparent; border: 1px solid #C3BCA7; color: #6B6A62; } .ds-chip-forest { color: #2D3E2C; border-color: #2D3E2C; } .ds-chip-ember { color: #B33A2A; border-color: #B33A2A; } .ds-chip-bark { color: #6B4423; border-color: #6B4423; }"
+    },
+    {
+      "name": "Warning Alert",
+      "kind": "card",
+      "refersTo": "alert-warn",
+      "description": "Civic-bulletin alert: cream warn-tinted background with full 1px Caution Ochre border (NOT a side-stripe), leading 36px Caution Ochre circle with exclamation glyph, dated headline, supporting copy, inline 'more' link.",
+      "html": "<div class=\"ds-alert\" role=\"alert\"><div class=\"ds-alert-icon\" aria-hidden=\"true\">!</div><div class=\"ds-alert-body\"><h4 class=\"ds-alert-title\">Elevated fire danger in effect &middot; April 16&ndash;18</h4><p class=\"ds-alert-text\">Dry conditions and sustained winds. New burn permits are being issued for small brush only.</p></div><a class=\"ds-alert-more\" href=\"#\">Current conditions &rarr;</a></div>",
+      "css": ".ds-alert { display: grid; grid-template-columns: 44px 1fr auto; gap: 16px; align-items: center; padding: 14px 20px; background: #FBF3E2; border: 1px solid #C9762E; font-family: 'Public Sans', system-ui, sans-serif; } .ds-alert-icon { width: 36px; height: 36px; border-radius: 50%; background: #C9762E; color: #FFF5E2; display: grid; place-items: center; font-weight: 800; font-size: 20px; } .ds-alert-title { margin: 0 0 2px; font-size: 15.5px; font-weight: 700; color: #1C1C1A; line-height: 1.25; } .ds-alert-text { margin: 0; font-size: 14.5px; color: #3A3933; line-height: 1.5; } .ds-alert-more { font-size: 14px; font-weight: 700; color: #8E2C1F; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }"
+    },
+    {
+      "name": "Hairline Meta Grid",
+      "kind": "custom",
+      "refersTo": "card-paper",
+      "description": "Signature pattern: a row of evenly-divided cells separated by 1px Newsprint Rule on every internal edge, framed by Newsprint Rule top and bottom. Replaces what most sites would do with cards. Used for the hero meta row, FWI conditions, and burn-permit grid.",
+      "html": "<div class=\"ds-hairline-meta\"><div class=\"ds-cell\"><div class=\"ds-cell-k\">Calls answered, 2025</div><div class=\"ds-cell-v\">142 <small>structure &middot; brush &middot; MVC &middot; medical</small></div></div><div class=\"ds-cell\"><div class=\"ds-cell-k\">Active volunteers</div><div class=\"ds-cell-v\">14 <small>incl. 2 EMRs, 1 EMT-B</small></div></div><div class=\"ds-cell\"><div class=\"ds-cell-k\">Station address</div><div class=\"ds-cell-v\">46 West Rd. <small>Ira, VT 05777</small></div></div><div class=\"ds-cell\"><div class=\"ds-cell-k\">Non-emergency</div><div class=\"ds-cell-v\">(802) 235-2211 <small>chief@irafd.vt.gov</small></div></div></div>",
+      "css": ".ds-hairline-meta { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #D9D2BF; border-bottom: 1px solid #D9D2BF; background: #F5F1E8; font-family: 'Public Sans', system-ui, sans-serif; } .ds-cell { padding: 20px 24px; border-right: 1px solid #D9D2BF; } .ds-cell:last-child { border-right: 0; } .ds-cell-k { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #6B6A62; margin-bottom: 6px; } .ds-cell-v { font-size: 22px; font-weight: 700; line-height: 1.15; color: #1C1C1A; letter-spacing: -0.01em; } .ds-cell-v small { font-size: 13px; color: #6B6A62; font-weight: 400; display: block; margin-top: 2px; }"
+    },
+    {
+      "name": "Event Row",
+      "kind": "custom",
+      "refersTo": "card-paper",
+      "description": "List item, not a card. Three columns: oversized day-of-month numeral block, event description with metadata, category tag chip. Hover wash to Mill Paper expands the row's horizontal padding.",
+      "html": "<a class=\"ds-event\" href=\"#\"><div class=\"ds-event-date\"><div class=\"ds-event-mo\">May</div><div class=\"ds-event-day\">04</div><div class=\"ds-event-dow\">Saturday</div></div><div class=\"ds-event-info\"><h3 class=\"ds-event-title\">Pancake Breakfast &amp; Open House</h3><p class=\"ds-event-text\">Fundraiser at Station 9. Tour the trucks, meet the crew.</p><div class=\"ds-event-meta\"><span>8:00&ndash;11:00 AM</span><span>$10 donation</span></div></div><span class=\"ds-chip ds-chip-bark\">Fundraiser</span></a>",
+      "css": ".ds-event { display: grid; grid-template-columns: 120px 1fr auto; gap: 32px; padding: 28px 0; border-bottom: 1px solid #D9D2BF; align-items: center; text-decoration: none; color: inherit; transition: background 150ms cubic-bezier(0.4, 0, 0.2, 1), padding 150ms cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Public Sans', system-ui, sans-serif; } .ds-event:hover { background: #EDE7D8; padding-left: 20px; padding-right: 20px; } .ds-event-mo { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #6B4423; } .ds-event-day { font-size: 46px; font-weight: 800; line-height: 1; color: #1C1C1A; margin-top: 2px; letter-spacing: -0.02em; } .ds-event-dow { font-size: 13px; color: #6B6A62; margin-top: 4px; } .ds-event-title { font-size: 22px; font-weight: 700; color: #1C1C1A; margin: 0 0 6px; line-height: 1.25; } .ds-event-text { font-size: 14.5px; color: #3A3933; margin: 0; } .ds-event-meta { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6B6A62; margin-top: 8px; display: flex; gap: 16px; } .ds-chip { display: inline-block; font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; background: transparent; border: 1px solid #C3BCA7; color: #6B6A62; white-space: nowrap; } .ds-chip-bark { color: #6B4423; border-color: #6B4423; }"
+    },
+    {
+      "name": "Display Headline with Italic Accent",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "The system's signature typographic move: Public Sans 800 at 64px with one or two phrases set in Source Serif 4 italic 500, colored Maple Bark. Use sparingly: hero only.",
+      "html": "<div class=\"ds-display-block\"><div class=\"ds-eyebrow\">Volunteer Fire &amp; Rescue &middot; Est. 1879</div><h1 class=\"ds-display\">Protecting the <em class=\"ds-italic-accent\">hills, homes</em><br>and hollows of Ira.</h1></div>",
+      "css": ".ds-display-block { font-family: 'Public Sans', system-ui, sans-serif; color: #1C1C1A; } .ds-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #6B4423; margin-bottom: 18px; } .ds-display { font-size: 64px; line-height: 1.02; font-weight: 800; letter-spacing: -0.025em; margin: 0; } .ds-italic-accent { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-weight: 500; color: #6B4423; letter-spacing: -0.01em; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Town Bulletin",
+    "overview": "The site reads like a printed civic notice posted outside the Ira town hall: dated, plain-spoken, and unmistakably of this place. The page is a public document first, a website second. Rules of authority come from the Vermont Division of Forestry and the Fire Warden, not from marketing. Editorial italic accents (Source Serif 4) do all of the warm, human work; everything else is set in a single utilitarian sans (Public Sans) with hairline rules carving the page into civic columns. The system explicitly refuses the four reflex aesthetics named in PRODUCT.md: SaaS landing-page templating, slick corporate firefighter branding, dark-mode tech, and clipart-civic web. It does not perform 'fire department.' It performs the quiet, accurate authority of a department that has been answering calls since 1879 and intends to keep doing so. Trust comes from specificity: today's fire weather index, the Warden's actual phone number, the address of the station, the count of active volunteers (fourteen).",
+    "keyCharacteristics": [
+      "Earth-tone palette anchored on Almanac Cream paper and Bulletin Ink type, accented by Vermont Pine and Ember Brick.",
+      "One sans family doing the structural work; one serif italic doing the editorial work. No third typeface.",
+      "Hairline rules (1px Newsprint Rule) instead of cards, dividers, or container shadows. The page is a printed sheet, not a stack of floating panels.",
+      "Sharp corners by default. Pill-shaped tags only. No rounded cards, no soft cards, no glass.",
+      "Flat. Zero shadow vocabulary. Depth is conveyed by tonal shifts in paper (Almanac Cream, Mill Paper, Vermont Pine, Bulletin Ink)."
+    ],
+    "rules": [
+      {
+        "name": "The One Voice Rule",
+        "body": "Vermont Pine carries authority; Ember Brick carries danger. The two never share a screen surface as equals. If both must appear, pine is the structural color (button, header, frame) and ember is the highlight (donate badge, alert state, crest flame).",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Blue Rule",
+        "body": "Civic-American sites reach for navy by reflex. We never do. Every neutral is tinted toward maple/cream; every accent is grown from this landscape, not a corporate palette.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Newsprint Rule (1px solid #D9D2BF) replaces shadows, dropshadows, glows, and most card outlines. If a divider is needed, it is one pixel of Newsprint Rule. Anything heavier reads as a frame, not a separator.",
+        "section": "colors"
+      },
+      {
+        "name": "The Almanac-Italic Rule",
+        "body": "Source Serif 4 italic is reserved for two roles: a phrase or two inside a Display headline, and the footer tagline. It is never used for body type, button labels, eyebrows, or section headlines.",
+        "section": "typography"
+      },
+      {
+        "name": "The Eyebrow Rule",
+        "body": "Every uppercase label is letter-spaced (>=0.06em for labels, 0.18em for eyebrows) and rendered in Birch Gray or Maple Bark. Uppercase without tracking reads as shouting.",
+        "section": "typography"
+      },
+      {
+        "name": "The Single-Sans Rule",
+        "body": "Public Sans is the only sans on the page. No humanist supplemental sans, no rounded display sans, no condensed accent. One civic face, six roles.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-Page Rule",
+        "body": "Surfaces sit on the page; they do not float above it. If a section needs separation from its neighbor, use a tonal shift (Almanac Cream to Mill Paper, or to Vermont Pine for the dark block) plus a 1px Newsprint Rule. Never a shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No-Glow Rule",
+        "body": "Focus states do not glow. Focus is communicated by a 2px solid Vermont Pine outline offset 2px from the element. No diffused colored shadows under buttons; no neon focus rings.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do lead every screen with a specific, dated public-information artifact. The fire weather index is updated daily and bears a timestamp. Future variants should keep that pattern: real, current, sourced.",
+      "Do use Source Serif 4 italic for one or two phrases inside a Display headline. The contrast between the unfussy sans and the editorial italic is the system's single signature move.",
+      "Do use Newsprint Rule (1px solid #D9D2BF) wherever you would otherwise reach for a card, a shadow, or a soft outline.",
+      "Do keep the Ember Brick footprint under 10% of any screen. Its rarity is what gives it weight on the donate card.",
+      "Do vary internal padding. 36px for permit cells, 48px for CTA cards, 20px for inline call-outs. Same padding everywhere reads as monotony.",
+      "Do size body type at 17px or larger and respect the 65-75ch line-length cap. The audience is older and this is a public-information site."
+    ],
+    "donts": [
+      "Don't use side-stripe borders greater than 1px as a colored accent on cards, alerts, or list items. The legacy alert pattern in index.html uses a 4px Caution Ochre left edge; treat as a refactor candidate. New alerts use the full-border pattern.",
+      "Don't add box-shadow to any surface. The system is flat. If a surface needs to read as raised, change its tonal background and add a 1px Newsprint Rule. Glows and drop shadows make this look like a 2014 SaaS template.",
+      "Don't use gradient text or background-clip: text. Emphasis is achieved with weight (800 vs 400) and italic accent, never with gradients.",
+      "Don't use glassmorphism, backdrop-filter blur, or any frosted surface. The page is paper, not glass.",
+      "Don't add navy, royal blue, or civic blue anywhere. The palette is paper, ink, pine, bark, and ember. No blue.",
+      "Don't use stock photography of crews silhouetted against sunsets, or any 'heroes' rhetoric. The crest does the visual work; the volunteer count (fourteen) does the pride work.",
+      "Don't add gradient-mesh hero backgrounds, 'Trusted by' logo walls, oversized rounded CTAs, or any element from the SaaS landing playbook.",
+      "Don't flip the system to dark mode by default, add neon accents, or import a 'modern AI workflow' aesthetic. This is a fire department.",
+      "Don't reach for clipart flames, tiled background images, marquee text, or 'Welcome to our website' intros. Every visual element is hand-built or it is not on the page.",
+      "Don't use em dashes in copy. PRODUCT.md's tone is plain-spoken civic. Commas, colons, semicolons, periods, or parentheses do the work.",
+      "Don't add a third typeface. Public Sans + Source Serif 4 italic is the entire system.",
+      "Don't card the hairline grids (hero meta, FWI conditions, permit-grid). They are tables built from 1px rules on every internal edge."
+    ]
+  }
+}
